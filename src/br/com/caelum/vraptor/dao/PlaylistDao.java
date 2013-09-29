@@ -1,5 +1,6 @@
 package br.com.caelum.vraptor.dao;
 
+import java.io.File;
 import java.util.List;
 
 import org.hibernate.Session;

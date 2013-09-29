@@ -16,9 +16,13 @@
  */
 package br.com.caelum.vraptor.blank;
 
+import java.util.List;
+
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.dao.PlaylistDao;
+import br.com.caelum.vraptor.models.Playlist;
 
 @Resource
 public class IndexController {
@@ -30,8 +34,13 @@ public class IndexController {
 	}
 
 	@Path("/")
-	public void index() {
+	public List<Playlist> index() {
+		PlaylistDao dao = new PlaylistDao();
+		
+		System.out.println(dao.listaTudo());
+	
 		// Form de novo usuario
-		result.include("variable", "VRaptor!");
+		// result.include("variable", "VRaptor!");
+		return dao.listaTudo();
 	}
 }

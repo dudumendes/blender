@@ -3,9 +3,15 @@
 </div>
 
 <h1>Nova Playlist</h1>
-<form action="adiciona" method="post" accept-charset="utf-8">    
+<form action="adiciona" method="post" accept-charset="utf-8" enctype="multipart/form-data">    
+	<fieldset>
+        <legend>Upload de Imagem</legend>
+        <input type="file" name="foto" />
+    </fieldset>
+    
     <fieldset>
         <legend>Adicionar Playlist</legend>
+                
         <label for="titulo">Título:</label>
         <input id="titulo" type="text" name="playlist.titulo"/>
 		

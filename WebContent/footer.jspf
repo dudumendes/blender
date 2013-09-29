@@ -1,9 +1,36 @@
-
-		</div><!-- div content -->
-	</div><!-- div body -->
-	<div id="footer">
+	<footer id="footer" class="site-footer" role="contentinfo">
+		<div class="inner clearfix">
+			<div class="grid_12 last grid_responsive_only"><aside id="text-4" class="widget widget_text">			<div class="textwidget"><hr></div>
+		</aside></div><div class=" grid_6 widget_no_margin"><aside id="text-2" class="widget widget_text">			<div class="textwidget"><div class="copyright_notice">Lorem ipsum.</div></div>
+		</aside></div><div class=" grid_6 widget_no_margin last"><aside id="text-3" class="widget widget_text">			<div class="textwidget"><ul class="footer-social-icons">
+				<li><a href="http://devatic.com/">t</a></li>
+				<li><a href="http://devatic.com/">f</a></li>
+				<li><a href="http://devatic.com/">s</a></li>
+				<li><a href="http://devatic.com/">m</a></li>
+				<li><a href="mailto:hello@example.com">@</a></li>
+				</ul></div>
+		</aside></div>		</div>
+	</footer>
 	
-	</div>
-
+	<script type='text/javascript' src='<c:url value="/js/jquery.form.min.js?ver=3.40.0-2013.08.13"/>'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/themes.devatic.com\/konzept2\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='<c:url value="/js/scripts.js?ver=3.5.2"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/jquery.mousewheel.js?ver=3.6"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/coming-soon.js?ver=3.6"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/content-slider.js?ver=3.6"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/jquery.gmap.min.js?ver=3.6"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/gmap.js?ver=3.6"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/jquery.ui.core.min.js?ver=1.10.3"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/jquery.ui.widget.min.js?ver=1.10.3"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/jquery.ui.accordion.min.js?ver=1.10.3"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/jquery.ui.tabs.min.js?ver=1.10.3"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/modernizr.custom.js?ver=2.6.2"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/iscroll.js?ver=4.1.9"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/functions.js?ver=3.6"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/portfolio.js?ver=3.6"/>'></script>
 </body>
 </html>
