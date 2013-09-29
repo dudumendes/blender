@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 .map_canvas { height: 355px; width: 100%; float: left; margin-bottom: 3em; }
+=======
+.map_canvas { height: 355px; width: 100%; float: left; margin-bottom: 3em; }
+>>>>>>> ed0134d801b8f6a0951da3ca5592011c980fb3e9
 .map_canvas img { max-width: none !important; }
