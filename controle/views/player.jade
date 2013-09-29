@@ -1,0 +1,35 @@
+html
+  head
+    link(rel='stylesheet', href='video-player.css')
+    script(type='text/javascript', src='http://google.com/jsapi/')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+    script(type='text/javascript', src='video-player.js')
+  body
+    //
+       1. The <div> tag will contain the <iframe> (and video player)
+    #player
+    #player-controls
+      ul
+        li.play
+          a(href='#') play
+        li.pause
+          a(href='#') pause
+    #videoInfo
+      p
+        | Current Time:
+        span#videoCurrentTime 0
+        | | Duration:
+        span#videoDuration 0
+      p
+        | Bytes Total:
+        span#bytesTotal 0
+        | | Start Bytes:
+        span#startBytes 0
+        | | Bytes Loaded:
+        span#bytesLoaded 0
+      p.seek-demo
+        a(href='#') jump to 2:00
+      p.seek-demo2
+        a(href='#') jump to 4:00
+      #seek_video_slider
+        #knob(draggable='true')
