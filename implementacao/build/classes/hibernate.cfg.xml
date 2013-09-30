@@ -9,7 +9,7 @@
         <property name="hibernate.connection.password">
         </property>
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost/blender2
+            jdbc:mysql://localhost/blender
         </property>
         <property name="hibernate.connection.driver_class">
             com.mysql.jdbc.Driver 
