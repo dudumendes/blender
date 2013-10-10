@@ -1,4 +1,4 @@
-var socket = io.connect("http://10.51.100.247:3000");
+var socket = io.connect("http://10.51.101.143:3000");
 
 function addMessage(msg, pseudo) {
     // nada
@@ -61,10 +61,16 @@ $(function() {
     // $("#pseudoSet").click(function() {setPseudo()});
     $("#submit").click(function() {sentMessage();});
 
-    $("#bt-play").click(function() {
-        $('#messageInput').val('play');
-        sentMessage();
-    });
+    $("#bt-play").toggle(
+        function() {
+            $('#messageInput').val('play');
+            sentMessage();
+        },
+        function() {
+            $('#messageInput').val('stop');
+            sentMessage();
+        }
+    );
 
     $("#bt-stop").click(function() {
         $('#messageInput').val('stop');

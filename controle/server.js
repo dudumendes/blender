@@ -37,6 +37,8 @@ var server_key = '123456';
 
 io.sockets.on('connection', function (socket) {
 
+	console.log('cade');
+
 	socket.on('setPseudo', function (data) {
 
 		if (server_status === false) {
@@ -50,6 +52,8 @@ io.sockets.on('connection', function (socket) {
 	});
 
 	socket.on('message', function (message) {
+		console.log('testeee');
+
 		socket.get('pseudo', function (error, name) {
 
 			// se quem estiver enviando não for o server

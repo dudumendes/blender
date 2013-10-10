@@ -1,4 +1,4 @@
-var socket = io.connect("http://10.51.100.247:3000");
+var socket = io.connect("http://10.51.101.143:3000");
 
 function addMessage(msg, pseudo) {
 	if (pseudo != 'client') {
