@@ -1,5 +1,7 @@
 package br.com.caelum.vraptor.models;
 
+import java.util.Date;
+
 import br.com.caelum.vraptor.infra.Arquivo;
 
 public class Video {
@@ -9,7 +11,7 @@ public class Video {
 	private String arquivo;
 	private String tag;
 	private String ordem;
-	private String dataAdicao;
+	private Date dataAdicao;
 	private String imagemVideo;
 	private String totalPositivos;
 	private String totalNegativos;
@@ -43,10 +45,10 @@ public class Video {
 	public void setOrdem(String ordem) {
 		this.ordem = ordem;
 	}
-	public String getDataAdicao() {
+	public Date getDataAdicao() {
 		return dataAdicao;
 	}
-	public void setDataAdicao(String dataAdicao) {
+	public void setDataAdicao(Date dataAdicao) {
 		this.dataAdicao = dataAdicao;
 	}
 	public String getImagemVideo() {

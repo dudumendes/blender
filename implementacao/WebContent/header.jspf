@@ -62,6 +62,31 @@
 			
 		</form>
 	</div>
+	
+	
+	<div id="box-add-video">
+		<form action="<c:url value="/videos/adiciona"/>" id="form-add-video" method="post" accept-charset="utf-8" enctype="multipart/form-data"> 
+			<label for="titulo">URL:</label>
+        	<input id="titulo" type="text" name="video.url"/>
+		
+			<label for="titulo">Título:</label>
+        	<input id="titulo" type="text" name="video.titulo"/>
+        
+        	<label for="foto">Arquivo:</label>
+        	<input type="file" name="arquivo" />
+		
+			<label for="descricao">Tags:</label>
+        	<input id="descricao" type="text" name="video.tag"/>
+               
+        	<label for="foto">Imagem de Capa:</label>
+        	<input type="file" name="imagem" />
+        	
+
+			
+			<input type="submit" value="Salvar"/>
+			
+		</form>
+	</div>
 
 
 	<header id="header" class="site-header" role="banner">

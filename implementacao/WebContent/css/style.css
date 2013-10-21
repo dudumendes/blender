@@ -2081,6 +2081,18 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 	z-index: 5;
 }
 
+#box-add-video{
+	/*display: none;*/
+	left: 0;
+	margin-top: -20px;
+	padding: 40px 20px 20px 20px;
+	position: absolute;
+	background: #111;
+	width: 310px;
+	height: 600px;
+	z-index: 5;
+}
+
 #box-add-playlist label{
 	margin-top: 15px;
 	font-size: 12px;

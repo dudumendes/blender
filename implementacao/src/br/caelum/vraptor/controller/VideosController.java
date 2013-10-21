@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -22,7 +23,6 @@ import br.com.caelum.vraptor.blank.IndexController;
 import br.com.caelum.vraptor.dao.VideoDao;
 import br.com.caelum.vraptor.infra.Arquivo;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
-import br.com.caelum.vraptor.models.Playlist;
 import br.com.caelum.vraptor.models.Video;
 
 @Resource
@@ -48,14 +48,18 @@ public class VideosController {
 		Timestamp timestampObj = new Timestamp();
 		long timeStamp = timestampObj.getDateTime();
 		
-    	Arquivo imagemVideo = new Arquivo(imagem, "playlists", timeStamp);
+    	Arquivo imagemVideo = new Arquivo(imagem, "videos", timeStamp);
     	imagemVideo.salvaArquivo();
     	
-    	Arquivo arquivoVideo = new Arquivo(arquivo, "playlists", timeStamp);
+    	Arquivo arquivoVideo = new Arquivo(arquivo, "videos", timeStamp);
     	arquivoVideo.salvaArquivo();
     	
     	video.setImagemVideo(timeStamp + imagem.getFileName());
     	video.setArquivo(timeStamp + arquivo.getFileName());
+    	
+    	video.setDataAdicao(new Date());
+    	video.setTotalNegativos("");
+    	video.setTotalPositivos("");
     	
         dao.salva(video);
         
