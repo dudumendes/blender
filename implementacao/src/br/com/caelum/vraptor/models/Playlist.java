@@ -12,7 +12,18 @@ public class Playlist {
 	private String descricao;
 	private String titulo;
 	private String tags;
-	private int videoInicial;
+	private String imagemCapa;
+	private int videoInicial;	
+	
+	
+	public String getImagemCapa() {
+		return imagemCapa;
+	}
+
+	public void setImagemCapa(String imagemCapa) {
+		this.imagemCapa = imagemCapa;
+	}
+
 	
 	
 	public Long getId() {
