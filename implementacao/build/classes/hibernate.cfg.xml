@@ -25,5 +25,6 @@
         <mapping class="br.com.caelum.vraptor.models.Usuario" />
         <mapping class="br.com.caelum.vraptor.models.Playlist" />
         <mapping class="br.com.caelum.vraptor.models.Categoria" />
+        <mapping class="br.com.caelum.vraptor.models.Video" />
     </session-factory>
 </hibernate-configuration>

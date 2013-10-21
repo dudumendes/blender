@@ -1,5 +1,6 @@
 package br.caelum.vraptor.controller;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -18,15 +19,16 @@ import com.sun.jmx.snmp.Timestamp;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.blank.IndexController;
-import br.com.caelum.vraptor.dao.PlaylistDao;
+import br.com.caelum.vraptor.dao.VideoDao;
 import br.com.caelum.vraptor.infra.Arquivo;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.models.Playlist;
+import br.com.caelum.vraptor.models.Video;
 
 @Resource
-public class PlaylistsController {
+public class VideosController {
 
-	private final PlaylistDao dao;
+	private final VideoDao dao;
 	private final Result result;
 	private final ServletContext context;
 	
@@ -34,7 +36,7 @@ public class PlaylistsController {
 	private final HttpServletResponse response;
 	
 
-    public PlaylistsController(PlaylistDao dao, Result result, final ServletContext context, HttpServletRequest request, HttpServletResponse response) {
+    public VideosController(VideoDao dao, Result result, final ServletContext context, HttpServletRequest request, HttpServletResponse response) {
         this.dao = dao;
         this.result = result;
         this.context = context;
@@ -42,45 +44,35 @@ public class PlaylistsController {
         this.response = response;
     }
 
-    public void adiciona(Playlist playlist, UploadedFile foto) {
+    public void adiciona(Video video, UploadedFile imagem, UploadedFile arquivo) {
 		Timestamp timestampObj = new Timestamp();
 		long timeStamp = timestampObj.getDateTime();
 		
-    	Arquivo arquivoCapa = new Arquivo(foto, "playlists", timeStamp);
-    	arquivoCapa.salvaArquivo();
+    	Arquivo imagemVideo = new Arquivo(imagem, "playlists", timeStamp);
+    	imagemVideo.salvaArquivo();
     	
-    	playlist.setImagemCapa(timeStamp + foto.getFileName());
+    	Arquivo arquivoVideo = new Arquivo(arquivo, "playlists", timeStamp);
+    	arquivoVideo.salvaArquivo();
     	
-        dao.salva(playlist);
+    	video.setImagemVideo(timeStamp + imagem.getFileName());
+    	video.setArquivo(timeStamp + arquivo.getFileName());
+    	
+        dao.salva(video);
         
-        result.include("notice", "Playlist criada com sucesso!");
+        result.include("notice", "Video adicionado com sucesso!");
         //result.redirectTo(this).lista();
         result.redirectTo(IndexController.class).index();
     }
 
-    public void formulario(){
-    	
-    }
- 
-    public Playlist edita(Long id){
-    	return dao.carrega(id);
-    }
-    
-    public void altera(Playlist playlist) {
-        dao.atualiza(playlist);
-        result.include("notice", "Playlist alterada com sucesso!");
-        result.redirectTo(this).lista();
-    }
-    
     public void remove(Long id) {
-        Playlist playlist = dao.carrega(id);
-        dao.remove(playlist);
+        Video video = dao.carrega(id);
+        dao.remove(video);
         
-        result.include("notice", "Playlist removida com sucesso!");
-        result.redirectTo(this).lista();
+        result.include("notice", "Video removido com sucesso!");
+        result.redirectTo(IndexController.class).index();
     }
  
-	public List<Playlist> lista() {
-		return dao.listaTudo();
-	}
+	/* public List<Playlist> lista() {*/
+		/*return dao.listaTudo();*/
+/*	}*/
 }

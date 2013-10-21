@@ -13,8 +13,9 @@ import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 public class Arquivo {
 	
+	private long timeStamp;
 	private UploadedFile arquivo;
-	private static final String caminhoAbsolutoDaPastaUploads = "C:\\Users\\1110508\\Documents\\GitHub\\blender\\implementacao\\WebContent\\WEB-INF\\imagens\\uploads\\";
+	private static final String caminhoAbsolutoDaPastaUploads = "C:\\Users\\1110508\\Documents\\GitHub\\blender\\implementacao\\WebContent\\uploads\\";
 	private String caminhoPastaDentroDeUploads;
 	
 	private boolean cropped = false;
@@ -26,14 +27,15 @@ public class Arquivo {
 		
 	}
 
-	public Arquivo(UploadedFile arquivo, String caminhoPastaDentroDeUploads){
+	public Arquivo(UploadedFile arquivo, String caminhoPastaDentroDeUploads, long timeStamp){
 		this.arquivo = arquivo;
+		this.timeStamp = timeStamp;
 		this.caminhoPastaDentroDeUploads = caminhoPastaDentroDeUploads;
 	}
 
 	public void salvaArquivo() {
-		Timestamp timestamp = new Timestamp();
-		File fotoSalva = new File(Arquivo.caminhoAbsolutoDaPastaUploads + this.caminhoPastaDentroDeUploads, timestamp.getDateTime() + this.arquivo.getFileName());
+
+		File fotoSalva = new File(Arquivo.caminhoAbsolutoDaPastaUploads + this.caminhoPastaDentroDeUploads, timeStamp + this.arquivo.getFileName());
 	
 		try {
 			IOUtils.copyLarge(this.arquivo.getFile(), new FileOutputStream(fotoSalva));
@@ -45,6 +47,7 @@ public class Arquivo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 
 	public UploadedFile getArquivo() {
