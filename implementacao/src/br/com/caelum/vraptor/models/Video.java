@@ -2,10 +2,19 @@ package br.com.caelum.vraptor.models;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import br.com.caelum.vraptor.infra.Arquivo;
 
+
+@Entity
 public class Video {
 
+	
+	@Id @GeneratedValue 
+	private Long id;
 	private String url;
 	private String titulo;
 	private String arquivo;
