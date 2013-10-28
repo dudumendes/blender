@@ -2077,21 +2077,10 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 	position: absolute;
 	background: #111;
 	width: 310px;
-	height: 600px;
+	height: 400px;
 	z-index: 5;
 }
 
-#box-add-video{
-	/*display: none;*/
-	left: 0;
-	margin-top: -20px;
-	padding: 40px 20px 20px 20px;
-	position: absolute;
-	background: #111;
-	width: 310px;
-	height: 600px;
-	z-index: 5;
-}
 
 #box-add-playlist label{
 	margin-top: 15px;
@@ -2105,4 +2094,50 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 
 #box-add-playlist input[type="submit"]{
 	margin-top: 10px;
+}
+
+
+#box-add-playlist input#cancelar-add-playlist{
+	margin-top: 10px;
+	margin-left: 62px;
+}
+
+
+/* VIDEO */
+#box-add-video{
+	display: none;
+	left: 0;
+	margin-top: -20px;
+	padding: 40px 20px 20px 20px;
+	position: absolute;
+	background: #111;
+	width: 570px;
+	height: 350px;
+	z-index: 5;
+}
+
+#box-add-video label{
+	margin-top: 15px;
+	font-size: 12px;
+	text-transform: uppercase;
+	display: block;
+}
+#box-add-video input[type="text"]{
+	width: 100%;
+}
+
+#box-add-video input[type="submit"]{
+	margin-top: 22px;
+}
+
+#box-add-video input#cancelar-add-video{
+	margin-top: 22px;
+	margin-left: 26px;
+}
+
+
+.one-edge-shadow {
+	-webkit-box-shadow: 0 12px 6px -6px rgb(70, 70, 70);
+	   -moz-box-shadow: 0 12px 6px -6px rgb(70, 70, 70);
+	        box-shadow: 0 12px 6px -6px rgb(70, 70, 70);
 }

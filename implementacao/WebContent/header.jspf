@@ -42,7 +42,7 @@
 
 
 <body class="home page page-id-3232 page-template page-template-template-portfolio-php single-author sidebar-active viewing-portfolio-grid">
-	<div id="box-add-playlist">
+	<div id="box-add-playlist" class="one-edge-shadow">
 		<form action="<c:url value="/playlists/adiciona"/>" id="form-add-playlist" method="post" accept-charset="utf-8" enctype="multipart/form-data"> 
 			<label for="titulo">Título:</label>
         	<input id="titulo" type="text" name="playlist.titulo"/>
@@ -60,30 +60,39 @@
 			
 			<input type="submit" value="Salvar"/>
 			
+			<input type="button" id="cancelar-add-playlist" value="Cancelar"/>
+			
 		</form>
 	</div>
 	
 	
-	<div id="box-add-video">
+	<div id="box-add-video" class="one-edge-shadow">
 		<form action="<c:url value="/videos/adiciona"/>" id="form-add-video" method="post" accept-charset="utf-8" enctype="multipart/form-data"> 
-			<label for="titulo">URL:</label>
-        	<input id="titulo" type="text" name="video.url"/>
-		
-			<label for="titulo">Título:</label>
-        	<input id="titulo" type="text" name="video.titulo"/>
-        
-        	<label for="foto">Arquivo:</label>
-        	<input type="file" name="arquivo" />
-		
-			<label for="descricao">Tags:</label>
-        	<input id="descricao" type="text" name="video.tag"/>
-               
-        	<label for="foto">Imagem de Capa:</label>
-        	<input type="file" name="imagem" />
-        	
-
 			
+			<div style="float: left; width: 235px;">
+				<label for="titulo">URL:</label>
+	        	<input id="titulo" type="text" name="video.url"/>
+			
+				<label for="titulo">Título:</label>
+	        	<input id="titulo" type="text" name="video.titulo"/>
+	        
+	        	<label for="foto">Arquivo:</label>
+	        	<input type="file" name="arquivo" />
+			</div>
+		
+				
+			<div style="float: right; width: 235px; margin-left: 50px;">
+				<label for="descricao">Tags:</label>
+	        	<input id="descricao" type="text" name="video.tag"/>
+	               
+	        	<label for="foto">Imagem de Capa:</label>
+	        	<input type="file" name="imagem" />
+	        </div>	
+
+			<div style="clear: both;"></div>
 			<input type="submit" value="Salvar"/>
+			
+			<input type="button" id="cancelar-add-video" value="Cancelar"/>
 			
 		</form>
 	</div>
@@ -240,7 +249,7 @@
 						<div class="symbol">${playlist.titulo }</div>
 						<div class="categories">${playlist.tags }</div>
 					</div>
-					<div class="thumbnail-plus">+</div>
+					<div class="thumbnail-plus" style="position: absolute; z-index: 1000;">+</div>
 					<div style="background-color: #f36e21;" class="thumbnail-hover"></div>
 						<img class="project-img" src="uploads/playlists/${playlist.imagemCapa }" alt="${playlist.titulo }" />
 						

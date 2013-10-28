@@ -2,6 +2,20 @@
 
 	$(function() {
 		
+		
+		// centraliza box de add video
+		
+		var window_w = $(window).width();
+		var $box = $("#box-add-video");
+		var box_w = $("#box-add-video").width();
+		
+		
+		$box.css({
+			left: (window_w / 2) - (box_w / 2)
+		});
+		
+		
+		
 		if ($("#notice").html() != '') {
 			$("#notice").slideDown();
 		} else {
@@ -308,5 +322,8 @@
 
 		return features;
 	};
+	
+	
+	
 
 })(jQuery);

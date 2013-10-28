@@ -15,16 +15,7 @@ var moved;
 var projectIsLoading;
 
 
-jQuery(function($){
-	$('#bt-add-playlist').toggle(
-		function(){
-			$('#box-add-playlist').slideDown();
-		},
-		function(){
-			$('#box-add-playlist').slideUp();
-		}
-	);
-});
+
 
 function openCadastroPlaylist(){
 	jQuery(function($){
@@ -1159,3 +1150,38 @@ function setupProject(){
 	/* ------------------ END KONZEPT SCRIPTS ------------------ */
 	/* --------------------------------------------------------- */
 }
+
+
+
+jQuery(function($){
+	$('#bt-add-playlist').toggle(
+		function(){
+			$('#box-add-playlist').slideDown();
+		},
+		function(){
+			$('#box-add-playlist').slideUp();
+		}
+	);
+	
+	$('.thumbnail-plus').toggle(
+		function(){
+			$('#box-add-video').slideDown();
+		},
+		function(){
+			$('#box-add-video').slideUp();
+		}
+	);
+	
+	$("#cancelar-add-video").click(function(){
+		$('#box-add-video').slideUp();
+	});
+	
+	
+	$("#cancelar-add-playlist").click(function(){
+		$('#bt-add-playlist').click();
+	});
+	
+	
+	
+	
+});
