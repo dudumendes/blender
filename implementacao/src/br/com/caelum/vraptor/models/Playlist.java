@@ -1,8 +1,11 @@
 package br.com.caelum.vraptor.models;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Playlist {
@@ -14,6 +17,10 @@ public class Playlist {
 	private String tags;
 	private String imagemCapa;
 	private int videoInicial;	
+	
+	
+	@OneToMany(mappedBy="playlist")
+    private Set<Video> videos;
 	
 	
 	public String getImagemCapa() {

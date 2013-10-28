@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import br.com.caelum.vraptor.infra.Arquivo;
 
@@ -24,6 +25,10 @@ public class Video {
 	private String imagemVideo;
 	private String totalPositivos;
 	private String totalNegativos;
+	
+	@ManyToOne
+	private Playlist playlist;
+	
 	public String getUrl() {
 		return url;
 	}
@@ -78,6 +83,11 @@ public class Video {
 	public void setTotalNegativos(String totalNegativos) {
 		this.totalNegativos = totalNegativos;
 	}
-	
-	
+
+	public Playlist getPlaylist() {
+		return playlist;
+	}
+	public void setPlaylist(Playlist playlist) {
+		this.playlist = playlist;
+	}
 }

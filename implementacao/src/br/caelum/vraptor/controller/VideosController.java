@@ -20,9 +20,11 @@ import com.sun.jmx.snmp.Timestamp;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.blank.IndexController;
+import br.com.caelum.vraptor.dao.PlaylistDao;
 import br.com.caelum.vraptor.dao.VideoDao;
 import br.com.caelum.vraptor.infra.Arquivo;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.com.caelum.vraptor.models.Playlist;
 import br.com.caelum.vraptor.models.Video;
 
 @Resource
@@ -44,9 +46,14 @@ public class VideosController {
         this.response = response;
     }
 
-    public void adiciona(Video video, UploadedFile imagem, UploadedFile arquivo) {
+    public void adiciona(Video video, UploadedFile imagem, UploadedFile arquivo, long playlist_id) {
 		Timestamp timestampObj = new Timestamp();
 		long timeStamp = timestampObj.getDateTime();
+		
+		Playlist playlist = new Playlist();
+		playlist.setId(playlist_id);
+		
+
 		
     	Arquivo imagemVideo = new Arquivo(imagem, "videos", timeStamp);
     	imagemVideo.salvaArquivo();
@@ -60,6 +67,8 @@ public class VideosController {
     	video.setDataAdicao(new Date());
     	video.setTotalNegativos("");
     	video.setTotalPositivos("");
+    	
+    	video.setPlaylist(playlist);
     	
         dao.salva(video);
         

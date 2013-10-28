@@ -69,6 +69,8 @@
 	<div id="box-add-video" class="one-edge-shadow">
 		<form action="<c:url value="/videos/adiciona"/>" id="form-add-video" method="post" accept-charset="utf-8" enctype="multipart/form-data"> 
 			
+			<input type="hidden" value="12" name="playlist_id"/>
+			
 			<div style="float: left; width: 235px;">
 				<label for="titulo">URL:</label>
 	        	<input id="titulo" type="text" name="video.url"/>

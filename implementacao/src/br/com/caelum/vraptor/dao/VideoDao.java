@@ -23,6 +23,7 @@ public class VideoDao {
 
 	public void salva(Video video) {
 		Transaction tx = session.beginTransaction();
+				
 		session.save(video);
 		tx.commit();
 	}
