@@ -36,8 +36,8 @@ var _wpcf7 = {"loaderUrl":"http:\/\/themes.devatic.com\/konzept2\/wp-content\/pl
 
 <script type="text/javascript">
   jQuery(function($){
-	  console.log($('.usuariosForm'));
-	  $('.usuariosForm').validate({
+	  console.log($('#usuariosForm'));
+	  $('#usuariosForm').validate({
 			rules: {
 				nome: "required",
 				usuario: {

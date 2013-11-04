@@ -2136,8 +2136,87 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 }
 
 
+
+/* CADASTRO */
+#box-cadastro{
+	left: 106px;
+	margin-top: 0px;
+	padding: 40px 20px 20px 20px;
+	position: absolute;
+	background: #111;
+	width: 570px;
+	height: 350px;
+	z-index: 5;
+}
+
+#box-cadastro label{
+	margin-top: 15px;
+	font-size: 12px;
+	text-transform: uppercase;
+	display: block;
+}
+#box-cadastro input[type="text"]{
+	width: 100%;
+}
+
+#box-cadastro input[type="submit"]{
+	margin-top: 22px;
+}
+
+#box-cadastro input#cancelar-add-video{
+	margin-top: 22px;
+	margin-left: 26px;
+}
+
+
+
+/* Login */
+#box-login{
+	left: 721px;
+	margin-top: 0px;
+	padding: 40px 20px 20px 20px;
+	position: absolute;
+	background: #111;
+	width: 275px;
+	height: 350px;
+	z-index: 5;
+}
+
+#box-login label{
+	margin-top: 15px;
+	font-size: 12px;
+	text-transform: uppercase;
+	display: block;
+}
+#box-login input[type="text"]{
+	width: 100%;
+}
+
+#box-login input[type="submit"]{
+	margin-top: 22px;
+}
+
+#box-login input#cancelar-add-video{
+	margin-top: 22px;
+	margin-left: 26px;
+}
+
+
+
+body.login{
+	background: url('../images/photo-mosaic.jpg');
+}
+
+
+
 .one-edge-shadow {
 	-webkit-box-shadow: 0 12px 6px -6px rgb(70, 70, 70);
 	   -moz-box-shadow: 0 12px 6px -6px rgb(70, 70, 70);
 	        box-shadow: 0 12px 6px -6px rgb(70, 70, 70);
+}
+
+.tranparente95{
+	-moz-opacity: 0.95;
+	opacity: 0.95;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=95);
 }
