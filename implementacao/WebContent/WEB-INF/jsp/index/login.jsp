@@ -36,6 +36,11 @@
 	
 	
 	<div id="box-login" class="one-edge-shadow tranparente95">
+		<c:forEach var="error" items="${errors}">
+    		<span class="error-login">${error.message}</span>
+		</c:forEach>
+		
+		
 		<form action="<c:url value="/login_validar"/>" method="post" accept-charset="utf-8"> 
 
 			<div style="float: left; width: 235px;">

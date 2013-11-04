@@ -97,7 +97,7 @@ public class UsuariosController {
       
       if (carregado == null) {
         validator.add(
-            new ValidationMessage("usuário e/ou senha inválidos",
+            new ValidationMessage("Usuário e/ou senha inválidos",
                 "usuario.usuario"));
       }
       
