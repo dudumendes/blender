@@ -9,10 +9,13 @@ public class Usuario {
 	
 	@Id @GeneratedValue
 	private Long id;
-	
+	private String foto;
+	private String capa;
+	private int seguidores;
+	private int seguidos;
     private String nome;
     private String email;
-    private String login;
+    private String usuario;
     private String senha;
  
     
@@ -35,17 +38,41 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getLogin() {
-		return login;
+	public String getUsuario() {
+		return usuario;
 	}
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 	public String getSenha() {
 		return senha;
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	public String getCapa() {
+		return capa;
+	}
+	public void setCapa(String capa) {
+		this.capa = capa;
+	}
+	public int getSeguidores() {
+		return seguidores;
+	}
+	public void setSeguidores(int seguidores) {
+		this.seguidores = seguidores;
+	}
+	public int getSeguidos() {
+		return seguidos;
+	}
+	public void setSeguidos(int seguidos) {
+		this.seguidos = seguidos;
 	}
  
 }

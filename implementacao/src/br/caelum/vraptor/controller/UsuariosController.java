@@ -1,59 +1,102 @@
 package br.caelum.vraptor.controller;
 
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import br.com.caelum.vraptor.Path;
-import br.com.caelum.vraptor.Post;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
+
+import com.sun.jmx.snmp.Timestamp;
+
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.blank.IndexController;
 import br.com.caelum.vraptor.dao.UsuarioDao;
-import br.com.caelum.vraptor.infra.CriadorDeSession;
+import br.com.caelum.vraptor.dao.UsuarioWeb;
+import br.com.caelum.vraptor.infra.Arquivo;
+import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.com.caelum.vraptor.models.Playlist;
 import br.com.caelum.vraptor.models.Usuario;
+import br.com.caelum.vraptor.validator.ValidationMessage;
 
 @Resource
 public class UsuariosController {
 
 	private final UsuarioDao dao;
 	private final Result result;
+	private final ServletContext context;
 	
-    public UsuariosController(UsuarioDao dao, Result result) {
+	private final Validator validator;
+	private final HttpServletRequest request;
+	private final HttpServletResponse response;
+
+	private final UsuarioWeb usuarioWeb;
+
+    public UsuariosController(UsuarioDao dao, Result result, final ServletContext context, HttpServletRequest request, HttpServletResponse response, Validator validator, UsuarioWeb usuarioWeb) {
         this.dao = dao;
         this.result = result;
+        this.context = context;
+        this.request = request;
+        this.response = response;
+        this.validator = validator;
+        this.usuarioWeb = usuarioWeb;
     }
 
-    public void adiciona(Usuario usuario) {
-        dao.salva(usuario);
-
-        result.include("notice", "Usuário criado com sucesso!");
-        result.redirectTo(this).lista(); // Ou UsuariosController.class
-    }
-    
-    public void formulario(){
+    public void adiciona(Usuario usuario, String confirmacao) {
+		//Timestamp timestampObj = new Timestamp();
+		//long timeStamp = timestampObj.getDateTime();
+		
+		//Arquivo fotoUsuarioUsuario = new Arquivo(fotoUsuario, "usuarios", timeStamp);
+    	//fotoUsuarioUsuario.salvaArquivo();
     	
-    }
- 
-    public Usuario edita(Long id){
-    	return dao.carrega(id);
-    }
-    
-    public void altera(Usuario usuario) {
-        dao.atualiza(usuario);
-        result.include("notice", "Usuário alterado com sucesso!");
-        result.redirectTo(this).lista();
-    }
-    
-    public void remove(Long id) {
-        Usuario usuario = dao.carrega(id);
-        dao.remove(usuario);
+    	//Arquivo capaUsuarioUsuario = new Arquivo(capaUsuario, "usuarios", timeStamp);
+    	//capaUsuarioUsuario.salvaArquivo();
+    	
+    	//Usuario.setFoto(timeStamp + fotoUsuario.getFileName());
+    	//Usuario.setCapa(timeStamp + capaUsuario.getFileName());
+    	
+    	
+    	
+    	if (dao.existeUsuario(usuario)) {
+    	      validator.add(new ValidationMessage("Nome de usuário já existe", 
+    	          "usuario.usuario"));
+        }
+
+
+    	if (usuario.getSenha() != confirmacao) {
+    		validator.add(new ValidationMessage("As senhas informadas não são iguais", 
+      	          ""));
+    	}
+
+    	validator.onErrorUsePageOf(IndexController.class).login();
+    	
+    	
+        dao.salva(usuario);
         
-        result.include("notice", "Usuário removido com sucesso!");
-        result.redirectTo(this).lista();
+        result.include("notice", "Usuario adicionado com sucesso!");
+        //result.redirectTo(this).lista();
+        result.redirectTo(IndexController.class).index();
+    }
+
+    public void remove(Long id) {
+        Usuario Usuario = dao.carrega(id);
+        dao.remove(Usuario);
+        
+        result.include("notice", "Usuario removido com sucesso!");
+        result.redirectTo(IndexController.class).index();
     }
  
-	public List<Usuario> lista() {
-		return dao.listaTudo();
-	}
+	/* public List<Playlist> lista() {*/
+		/*return dao.listaTudo();*/
+/*	}*/
 }

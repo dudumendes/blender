@@ -3,8 +3,8 @@
 	$(function() {
 		
 		
+
 		// centraliza box de add video
-		
 		var window_w = $(window).width();
 		var $box = $("#box-add-video");
 		var box_w = $("#box-add-video").width();

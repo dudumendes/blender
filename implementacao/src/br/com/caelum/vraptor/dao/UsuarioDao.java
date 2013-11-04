@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.caelum.vraptor.infra.CriadorDeSession;
 import br.com.caelum.vraptor.ioc.Component;
@@ -43,4 +44,12 @@ public class UsuarioDao {
 	       this.session.delete(usuario);
 	       tx.commit();
 	}
+	
+	public boolean existeUsuario(Usuario usuario) {
+	    Usuario encontrado = (Usuario) session.createCriteria(Usuario.class)
+	      .add(Restrictions.eq("usuario", usuario.getUsuario()))
+	      .uniqueResult();
+	    return encontrado != null;
+	}
+	
 }

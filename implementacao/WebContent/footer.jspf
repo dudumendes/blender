@@ -32,5 +32,53 @@ var _wpcf7 = {"loaderUrl":"http:\/\/themes.devatic.com\/konzept2\/wp-content\/pl
 <script type='text/javascript' src='<c:url value="/js/iscroll.js?ver=4.1.9"/>'></script>
 <script type='text/javascript' src='<c:url value="/js/functions.js?ver=3.6"/>'></script>
 <script type='text/javascript' src='<c:url value="/js/portfolio.js?ver=3.6"/>'></script>
+<script type='text/javascript' src='<c:url value="/js/jquery.validate.js"/>'></script>
+
+<script type="text/javascript">
+  jQuery(function($){
+	  console.log($('.usuariosForm'));
+	  $('.usuariosForm').validate({
+			rules: {
+				nome: "required",
+				usuario: {
+					required: true,
+					minlength: 2
+				},
+				senha: {
+					required: true,
+					minlength: 5
+				},
+				confirmacao: {
+					required: true,
+					minlength: 5,
+					equalTo: "#senha"
+				},
+				email: {
+					required: true,
+					email: true
+				}
+			},
+			messages: {
+				nome: "Informe o seu nome",
+				usuario: {
+					required: "Informe o seu nome de usuário",
+					minlength: "O seu nome de usuário deve conter no mínimo 2 caracteres"
+				},
+				senha: {
+					required: "Informe a sua senha",
+					minlength: "A sua senha deve conter no mínimo 5 caracteres"
+				},
+				confirmacao: {
+					required: "Informe uma senha!",
+					minlength: "A sua senha deve conter no mínimo 5 caracteres",
+					equalTo: "As senhas não são iguais"
+				},
+				email: "Informe um email"
+			}
+		});
+  });
+  
+</script>
+
 </body>
 </html>

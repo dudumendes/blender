@@ -43,4 +43,15 @@ public class IndexController {
 		// result.include("variable", "VRaptor!");
 		return dao.listaTudo();
 	}
+	
+	@Path("/login")
+	public List<Playlist> login() {
+		PlaylistDao dao = new PlaylistDao();
+		
+		System.out.println(dao.listaTudo());
+	
+		// Form de novo usuario
+		// result.include("variable", "VRaptor!");
+		return dao.listaTudo();
+	}
 }

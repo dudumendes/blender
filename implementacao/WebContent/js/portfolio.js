@@ -1372,9 +1372,14 @@ jQuery(function($){
 	
 	$('.thumbnail-plus').toggle(
 		function(){
+			//set playlist_id no formulario
+			var playlist_id = $(this).data('playlistid');
+			$("#valor_playlist_id").val(playlist_id);
+			
 			$('#box-add-video').slideDown();
 		},
 		function(){
+			$("#valor_playlist_id").val("");
 			$('#box-add-video').slideUp();
 		}
 	);
