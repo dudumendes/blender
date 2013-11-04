@@ -17,6 +17,8 @@ import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 import com.sun.jmx.snmp.Timestamp;
 
+import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
@@ -87,15 +89,34 @@ public class UsuariosController {
         //result.redirectTo(this).lista();
         result.redirectTo(IndexController.class).index();
     }
+    
+    
+    @Post("/login_validar")
+    public void login(Usuario usuario) {
+      Usuario carregado = dao.carrega(usuario);
+      if (carregado == null) {
+        validator.add(
+            new ValidationMessage("usuário e/ou senha inválidos",
+                "usuario.usuario"));
+      }
+      validator.onErrorUsePageOf(IndexController.class).login();
 
-    public void remove(Long id) {
-        Usuario Usuario = dao.carrega(id);
-        dao.remove(Usuario);
-        
-        result.include("notice", "Usuario removido com sucesso!");
-        result.redirectTo(IndexController.class).index();
+      System.out.println(validator.getErrors());
+      
+      usuarioWeb.login(carregado);
+
+      System.out.println("Deveria redirecionar...");
+      
+      // result.redirectTo(IndexController.class).index();
     }
  
+    
+    @Path("/logout")
+    public void logout() {
+      usuarioWeb.logout();
+      result.redirectTo(IndexController.class).login();
+    }
+    
 	/* public List<Playlist> lista() {*/
 		/*return dao.listaTudo();*/
 /*	}*/

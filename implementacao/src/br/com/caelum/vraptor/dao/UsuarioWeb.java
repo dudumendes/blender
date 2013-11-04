@@ -21,4 +21,9 @@ public class UsuarioWeb {
   public boolean isLogado() {
     return logado != null;
   }
+  
+  public void logout() {
+    this.logado = null;
+  }
+  
 }

@@ -29,8 +29,13 @@ public class UsuarioDao {
         return this.session.createCriteria(Usuario.class).list();
 	}
 
-	public Usuario carrega(Long id) {
-	     return (Usuario) this.session.load(Usuario.class, id);
+	public Usuario carrega(Usuario usuario) {
+		 return (Usuario) session.createCriteria(Usuario.class)
+			      .add(Restrictions.eq("usuario", usuario.getUsuario()))
+			      .add(Restrictions.eq("senha", usuario.getSenha()))
+			      .uniqueResult();
+		
+		// return (Usuario) this.session.load(Usuario.class, id);
 	}
 	
 	public void atualiza(Usuario usuario) {

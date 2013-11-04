@@ -34,7 +34,7 @@
 	
 	
 	
-<form action="<c:url value="/login/validar"/>" method="POST">
+<form action="<c:url value="/login_validar"/>" method="POST">
   <fieldset>
     <legend>Efetue o login</legend>
         
