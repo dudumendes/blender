@@ -4,26 +4,26 @@
 
 			<div style="float: left; width: 235px;">
 				<label for="nome">Nome:</label>
-	        	<input id="nome" type="text" name="usuario.nome" value="${usuario.nome }"/>
+	        	<input id="nome" type="text" name="usuario.nome" required="required" value="${usuario.nome }"/>
 			
 				<label for="email">E-mail:</label>
-	        	<input id="email" type="text" name="usuario.email" value="${usuario.email }"/>
+	        	<input id="email" type="text" name="usuario.email" required="required" value="${usuario.email }"/>
 
 			</div>
 
 			<div style="float: right; width: 235px; margin-left: 50px;">
 				<label for="senha">Senha:</label>
-	        	<input id="senha" type="password" name="usuario.senha" />
+	        	<input id="senha" type="password" required="required" name="usuario.senha" />
 	               
 	        	<label for="confirmacao">Confirmar Senha:</label>
-	        	<input id="confirmacao" type="password"/>
+	        	<input id="confirmacao" required="required" type="password"/>
 	        </div>
 	        
 	        <div style="clear: both;"></div>
 	        
 	        <div style="float: left; width: 235px;">
 				<label for="usuario">Usuário:</label>
-	        	<input id="usuario" type="text" name="usuario.usuario" value="${usuario.usuario }"/>
+	        	<input id="usuario" type="text" required="required" name="usuario.usuario" value="${usuario.usuario }"/>
 			
 				<input type="submit" value="Salvar"/>
 
@@ -45,10 +45,10 @@
 
 			<div style="float: left; width: 235px;">
 				<label for="usuario">Usuário:</label>
-	        	<input id="usuario" type="text" name="usuario.usuario" value=""/>
+	        	<input id="usuario" type="text" required="required" name="usuario.usuario" value=""/>
 			
 				<label for="senha">Senha:</label>
-	        	<input id="senha" type="text" name="usuario.senha" value=""/>
+	        	<input id="senha" type="text" required="required" name="usuario.senha" value=""/>
 
 			</div>
 	        

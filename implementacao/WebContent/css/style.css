@@ -2145,7 +2145,7 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 	position: absolute;
 	background: #111;
 	width: 570px;
-	height: 350px;
+	min-height: 350px;
 	z-index: 5;
 }
 
@@ -2221,6 +2221,6 @@ body.login{
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=95);
 }
 
-.error-login{
+.error-login, .error{
 	color: red;
 }
