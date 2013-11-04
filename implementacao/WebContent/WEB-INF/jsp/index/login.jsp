@@ -38,8 +38,8 @@
   <fieldset>
     <legend>Efetue o login</legend>
         
-    <label for="login">Login:</label>
-      <input id="login" type="text" name="usuario.login"/>
+    <label for="usuario">Login:</label>
+      <input id="usuario" type="text" name="usuario.usuario"/>
 
     <label for="senha">Senha:</label>
       <input id="senha" type="password" name="usuario.senha"/>

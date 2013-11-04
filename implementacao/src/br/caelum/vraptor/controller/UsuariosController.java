@@ -92,22 +92,26 @@ public class UsuariosController {
     
     
     @Post("/login_validar")
-    public void login(Usuario usuario) {
+    public void login_validar(Usuario usuario) {
       Usuario carregado = dao.carrega(usuario);
+      
       if (carregado == null) {
         validator.add(
             new ValidationMessage("usuário e/ou senha inválidos",
                 "usuario.usuario"));
       }
-      validator.onErrorUsePageOf(IndexController.class).login();
-
+      
+      System.out.println("Errors: -----------------------");
+      
       System.out.println(validator.getErrors());
       
+      validator.onErrorUsePageOf(IndexController.class).login();
+
       usuarioWeb.login(carregado);
 
       System.out.println("Deveria redirecionar...");
       
-      // result.redirectTo(IndexController.class).index();
+      result.redirectTo(IndexController.class).index();
     }
  
     
