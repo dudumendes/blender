@@ -68,19 +68,18 @@ public class UsuariosController {
     	//Usuario.setCapa(timeStamp + capaUsuario.getFileName());
     	
     	
-    	
     	if (dao.existeUsuario(usuario)) {
     	      validator.add(new ValidationMessage("Nome de usuário já existe", 
     	          "usuario.usuario"));
         }
 
-
-    	if (usuario.getSenha() != confirmacao) {
-    		validator.add(new ValidationMessage("As senhas informadas não são iguais", 
-      	          ""));
-    	}
-
-    	validator.onErrorUsePageOf(IndexController.class).login();
+    	
+//    	if ((String) usuario.getSenha() != (String) confirmacao) {
+//    		System.out.println("----------- Deu ERRO !--------------------------");
+//    		//validator.add(new ValidationMessage("As senhas informadas não são iguais", ""));
+//    	}
+//
+//    	validator.onErrorUsePageOf(IndexController.class).login();
     	
     	
         dao.salva(usuario);

@@ -16,7 +16,7 @@
 	        	<input id="senha" type="password" required="required" name="usuario.senha" />
 	               
 	        	<label for="confirmacao">Confirmar Senha:</label>
-	        	<input id="confirmacao" required="required" type="password"/>
+	        	<input id="confirmacao" name="confirmacao" required="required" type="password"/>
 	        </div>
 	        
 	        <div style="clear: both;"></div>
