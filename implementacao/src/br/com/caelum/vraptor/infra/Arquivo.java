@@ -15,7 +15,9 @@ public class Arquivo {
 	
 	private long timeStamp;
 	private UploadedFile arquivo;
-	private static final String caminhoAbsolutoDaPastaUploads = "C:\\Users\\ADMIN\\Documents\\GitHub\\blender\\implementacao\\WebContent\\uploads\\";
+	// private static final String caminhoAbsolutoDaPastaUploads = "C:\\Users\\ADMIN\\Documents\\GitHub\\blender\\implementacao\\WebContent\\uploads\\";
+	private static final String caminhoAbsolutoDaPastaUploads = "/Users/mateusgomesfreitas/Documents/workspace/blender/implementacao/WebContent/uploads/";
+	
 	private String caminhoPastaDentroDeUploads;
 	
 	private boolean cropped = false;
