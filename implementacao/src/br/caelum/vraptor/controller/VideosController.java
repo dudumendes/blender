@@ -52,7 +52,6 @@ public class VideosController {
 		
 		Playlist playlist = new Playlist();
 		playlist.setId(playlist_id);
-		
 
 		
     	Arquivo imagemVideo = new Arquivo(imagem, "videos", timeStamp);

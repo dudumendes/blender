@@ -210,12 +210,11 @@
 					</div>
 					<div class="thumbnail-plus" data-playlistId="${playlist.id}" style="position: absolute; z-index: 1000;">+</div>
 					<div style="background-color: #f36e21;" class="thumbnail-hover"></div>
-						<img class="project-img" src="uploads/playlists/${playlist.imagemCapa }" alt="${playlist.titulo }" />
+						<img class="project-img" src="uploads/playlists/${playlist.imagemCapa }" style="width: 402px; height: 302px;" alt="${playlist.titulo }" />
 						
 						<div class="project-thumbnail-background"></div>
 					</div>
 					<div class="thumbnail-separator">/</div>
-				
 		</c:forEach>			
 					
 								

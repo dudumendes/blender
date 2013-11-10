@@ -19,9 +19,11 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.blank.IndexController;
 import br.com.caelum.vraptor.dao.PlaylistDao;
+import br.com.caelum.vraptor.dao.UsuarioWeb;
 import br.com.caelum.vraptor.infra.Arquivo;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.models.Playlist;
+import br.com.caelum.vraptor.models.Usuario;
 
 @Resource
 public class PlaylistsController {
@@ -33,13 +35,16 @@ public class PlaylistsController {
 	private final HttpServletRequest request;
 	private final HttpServletResponse response;
 	
+	private final UsuarioWeb usuarioWeb;
+	
 
-    public PlaylistsController(PlaylistDao dao, Result result, final ServletContext context, HttpServletRequest request, HttpServletResponse response) {
+    public PlaylistsController(PlaylistDao dao, Result result, final ServletContext context, HttpServletRequest request, HttpServletResponse response,  UsuarioWeb usuarioWeb) {
         this.dao = dao;
         this.result = result;
         this.context = context;
         this.request = request;
         this.response = response;
+        this.usuarioWeb = usuarioWeb;
     }
 
     public void adiciona(Playlist playlist, UploadedFile foto) {
@@ -51,6 +56,11 @@ public class PlaylistsController {
     	
     	playlist.setImagemCapa(timeStamp + foto.getFileName());
     	
+    	Usuario usuario = new Usuario();
+    	usuario.setId(this.usuarioWeb.getId());
+    	
+    	playlist.setUsuario(usuario);
+    
         dao.salva(playlist);
         
         result.include("notice", "Playlist criada com sucesso!");

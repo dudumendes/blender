@@ -18,6 +18,10 @@ public class UsuarioWeb {
     return logado.getNome();
   }
   
+  public long getId() {
+	return logado.getId();
+  }
+  
   public boolean isLogado() {
     return logado != null;
   }

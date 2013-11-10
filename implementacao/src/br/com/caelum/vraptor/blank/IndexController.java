@@ -22,19 +22,30 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.dao.PlaylistDao;
+import br.com.caelum.vraptor.dao.UsuarioWeb;
 import br.com.caelum.vraptor.models.Playlist;
+import br.com.caelum.vraptor.models.Usuario;
 
 @Resource
 public class IndexController {
 
 	private final Result result;
+	
+	private final UsuarioWeb usuarioWeb;
 
-	public IndexController(Result result) {
+	public IndexController(Result result, UsuarioWeb usuarioWeb) {
 		this.result = result;
+		this.usuarioWeb = usuarioWeb;
 	}
 
 	@Path("/")
 	public List<Playlist> index() {
+		
+		
+		if (! this.usuarioWeb.isLogado()) {
+			result.redirectTo(IndexController.class).login();
+		}
+
 		PlaylistDao dao = new PlaylistDao();
 		
 		System.out.println(dao.listaTudo());
@@ -45,13 +56,7 @@ public class IndexController {
 	}
 	
 	@Path("/login")
-	public List<Playlist> login() {
-		PlaylistDao dao = new PlaylistDao();
+	public void login() {
 		
-		System.out.println(dao.listaTudo());
-	
-		// Form de novo usuario
-		// result.include("variable", "VRaptor!");
-		return dao.listaTudo();
 	}
 }

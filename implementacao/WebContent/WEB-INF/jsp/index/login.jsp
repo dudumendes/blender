@@ -48,7 +48,7 @@
 	        	<input id="usuario" type="text" required="required" name="usuario.usuario" value=""/>
 			
 				<label for="senha">Senha:</label>
-	        	<input id="senha" type="text" required="required" name="usuario.senha" value=""/>
+	        	<input id="senha" type="password" required="required" name="usuario.senha" value=""/>
 
 			</div>
 	        

@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -21,8 +22,11 @@ public class Playlist {
 	
 	@OneToMany(mappedBy="playlist")
     private Set<Video> videos;
-	
-	
+
+	@ManyToOne
+	private Usuario usuario;
+
+
 	public String getImagemCapa() {
 		return imagemCapa;
 	}
@@ -71,6 +75,13 @@ public class Playlist {
 
 	public void setVideoInicial(int videoInicial) {
 		this.videoInicial = videoInicial;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 }
