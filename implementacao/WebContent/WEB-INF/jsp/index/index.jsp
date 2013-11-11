@@ -272,3 +272,33 @@ var loop_through = false;
 var global_current_id = false;
 var project_url = '';
 </script>	
+
+
+
+
+
+<!-- formulário do jsp -->
+<div id="menu">
+  <ul>
+    <li><form action="<c:url value="/playlist/busca"/>">
+      <input name="nome"/>
+    </form>
+    </li>
+  </ul>
+</div>
+
+<!-- puts -->
+<!-- falta importar o Puts para o projeto - https://github.com/cairesvs/Puts  -->
+
+<script type="text/javascript" 
+  src="<c:url value="/javascripts/jquery.puts.js"/>"></script>
+...
+<li><form action="<c:url value="/playlist/busca"/>">
+  <input id="busca" name="nome"/>
+</form>
+<script type="text/javascript">
+  $("#busca").puts("Busca produtos por nome");
+</script>
+</li>
+
+

@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.caelum.vraptor.infra.CriadorDeSession;
 import br.com.caelum.vraptor.ioc.Component;
@@ -43,5 +45,14 @@ public class PlaylistDao {
 	       Transaction tx = session.beginTransaction();
 	       this.session.delete(playlist);
 	       tx.commit();
+	}
+
+	//busca
+	
+	public List<Playlist> busca(String nome) {
+		
+		 return session.createCriteria(Playlist.class)
+			      .add(Restrictions.ilike("nome", nome, MatchMode.ANYWHERE))
+			      .list();
 	}
 }
