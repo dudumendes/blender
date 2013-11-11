@@ -44,4 +44,10 @@ public class PlaylistDao {
 	       this.session.delete(playlist);
 	       tx.commit();
 	}
+
+	//busca
+	public List<Playlist> busca(String nome) {
+		
+		return null;
+	}
 }

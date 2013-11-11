@@ -93,4 +93,12 @@ public class PlaylistsController {
 	public List<Playlist> lista() {
 		return dao.listaTudo();
 	}
+	
+	//busca
+	
+	public List<Playlist> busca(String nome) {
+		  result.include("nome", nome);
+		  return dao.busca(nome);
+		}
+	
 }
