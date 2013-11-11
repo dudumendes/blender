@@ -22,6 +22,7 @@ import br.com.caelum.vraptor.dao.PlaylistDao;
 import br.com.caelum.vraptor.dao.UsuarioWeb;
 import br.com.caelum.vraptor.infra.Arquivo;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.models.Playlist;
 import br.com.caelum.vraptor.models.Usuario;
 
