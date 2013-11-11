@@ -14,6 +14,8 @@
         	<input type="file" name="foto" />
         	
         	
+        	
+        	
         	<div style="float: left;">
 	        	<label for="categorias">Categoria:</label>
 	        	<select name="categoria_id" id="categorias">

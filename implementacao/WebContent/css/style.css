@@ -2088,6 +2088,14 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 	text-transform: uppercase;
 	display: block;
 }
+
+#box-add-playlist2 label{
+	margin-top: 15px;
+	font-size: 12px;
+	text-transform: uppercase;
+	display: block;
+}
+
 #box-add-playlist input[type="text"]{
 	width: 100%;
 }
