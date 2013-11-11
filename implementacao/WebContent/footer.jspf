@@ -37,6 +37,37 @@ var _wpcf7 = {"loaderUrl":"http:\/\/themes.devatic.com\/konzept2\/wp-content\/pl
 <script type="text/javascript">
 
   jQuery(function($){
+	  
+	  $("#btAddCategoria").toggle(
+		function(){
+			$("#box-add-categoria").show();
+		},
+		function(){
+			$("#box-add-categoria").hide();
+		}
+	  );
+
+
+	  $("#salvaCategoria").click(function(){
+		  $.ajax({
+			  type: "POST",
+			  url: '<c:url value="/categorias/adiciona"/>',
+			  data: { "categoria.titulo" : $("#categoria_titulo").val() }
+			}).done(function(res) {
+
+				var categorias_length = res.categorias.length;
+
+				$("#categorias").html("");
+				for (var i = 0; i<categorias_length; i++) {
+					$("#categorias").prepend("<option value=\""+res.categorias[i].id+"\">"+res.categorias[i].titulo+"</option>");
+				}
+
+				$("#box-add-categoria").fadeOut();
+
+			});
+	  });
+
+
 	  $('#bt-add-playlist').toggle(
 				function(){
 					$('#box-add-playlist').slideDown();

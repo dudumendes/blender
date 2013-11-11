@@ -13,6 +13,8 @@ import br.com.caelum.vraptor.dao.CategoriaDao;
 import br.com.caelum.vraptor.infra.CriadorDeSession;
 import br.com.caelum.vraptor.models.Categoria;
 
+import static br.com.caelum.vraptor.view.Results.*;
+
 @Resource
 public class CategoriasController {
 
@@ -26,9 +28,26 @@ public class CategoriasController {
 
     public void adiciona(Categoria categoria) {
         dao.salva(categoria);
-
-        result.include("notice", "Categoria criada com sucesso!");
-        result.redirectTo(this).lista();
+       
+       // result.include("notice", "Categoria criada com sucesso!");
+        
+        //result.include("categorias", cd.listaTudo());
+        
+        
+        CategoriaDao cd = new CategoriaDao();
+        
+        
+        List<Categoria> categorias = cd.listaTudo();
+        
+        result.use(json()).from(categorias, "categorias").serialize();
+        
+        
+       
+        
+        //result.redirectTo(this).lista();
+        
+        //result.include("notice", "Categoria criada com sucesso!");
+        //result.include("categoria_id", categoria.getId());
     }
 
     public void formulario(){

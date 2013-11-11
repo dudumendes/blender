@@ -21,8 +21,10 @@ import java.util.List;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.dao.CategoriaDao;
 import br.com.caelum.vraptor.dao.PlaylistDao;
 import br.com.caelum.vraptor.dao.UsuarioWeb;
+import br.com.caelum.vraptor.models.Categoria;
 import br.com.caelum.vraptor.models.Playlist;
 import br.com.caelum.vraptor.models.Usuario;
 
@@ -40,18 +42,18 @@ public class IndexController {
 
 	@Path("/")
 	public List<Playlist> index() {
-		
-		
+	    	
 		if (! this.usuarioWeb.isLogado()) {
 			result.redirectTo(IndexController.class).login();
 		}
 
 		PlaylistDao dao = new PlaylistDao();
+		CategoriaDao cd = new CategoriaDao();
 		
 		System.out.println(dao.listaTudo());
 	
 		// Form de novo usuario
-		// result.include("variable", "VRaptor!");
+		result.include("categorias", cd.listaTudo());
 		return dao.listaTudo();
 	}
 	

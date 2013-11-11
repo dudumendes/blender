@@ -13,6 +13,27 @@
         	<label for="foto">Imagem de Capa:</label>
         	<input type="file" name="foto" />
         	
+        	
+        	<div style="float: left;">
+	        	<label for="categorias">Categoria:</label>
+	        	<select name="categoria_id" id="categorias">
+		        	<c:forEach items="${categorias}" var="categoria">
+						<option value="${categoria.id}">${categoria.titulo}</option>	
+					</c:forEach>			
+		        </select>
+		    </div>
+
+        	<div class="add-categoria" style="float: left;">
+        	  <span style="display: block; margin: 46px 0 0 15px; cursor: pointer; line-height: 0px; height: 30px; font-size: 275%; font-family: Novecentowide, Arial, sans-serif; color: white;" id="btAddCategoria" >+</span>      	 
+        	</div>
+        	
+        	<div style="clear: both;"></div>
+        	
+        	<div style="display:none" id="box-add-categoria">
+        		<input name="categoria.titulo" placeholder="Título da categoria" id="categoria_titulo"/>
+        		<input type="button" value="+" name="salvaCategoria" id="salvaCategoria"/>
+        	</div>
+        	
         	<input id="videoInicial" type="hidden" value="0" name="playlist.videoInicial"/>
 			
 			<input type="submit" value="Salvar"/>
@@ -78,7 +99,7 @@
 				<nav class="site-navigation clearfix" role="navigation">
 					<h3 class="menu-toggle">Menu</h3>
 					<div class="main-nav">
-						<ul id="menu-main-menu" class="nav-menu">
+						<!--  <ul id="menu-main-menu" class="nav-menu">
 							<li id="menu-item-4888" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4888"><a href="http://themes.devatic.com/konzept2/about/">About Us</a></li>
 							<li id="menu-item-4890" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4890"><a href="http://themes.devatic.com/konzept2/services/">Services</a></li>
 							<li id="menu-item-4892" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4892"><a href="http://themes.devatic.com/konzept2/our-news/">Our News</a></li>
@@ -86,7 +107,7 @@
 							<li id="menu-item-4891" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4891"><a href="http://themes.devatic.com/konzept2/blog/">Blog</a></li>
 							<li id="menu-item-4889" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4889"><a href="http://themes.devatic.com/konzept2/contact/">Contact</a></li>
 
-						</ul>
+						</ul> -->
 						<!-- 
 						<ul>
 		       	   			<li><a href="<c:url value="/usuarios/formulario"/>">Novo Usuário</a></li>
