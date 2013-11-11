@@ -48,6 +48,7 @@ public class PlaylistDao {
 	}
 
 	//busca
+	
 	public List<Playlist> busca(String nome) {
 		
 		 return session.createCriteria(Playlist.class)

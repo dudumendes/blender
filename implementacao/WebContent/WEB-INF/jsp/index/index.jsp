@@ -251,3 +251,13 @@ var loop_through = false;
 var global_current_id = false;
 var project_url = '';
 </script>	
+
+
+<div id="menu">
+  <ul>
+    <li><form action="<c:url value="/playlist/busca"/>">
+      <input name="nome"/>
+    </form>
+    </li>
+  </ul>
+</div>
