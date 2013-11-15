@@ -2072,15 +2072,14 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 #box-add-playlist{
 	display: none;
 	right: 0;
-	margin-top: -20px;
+	margin-top: 0;
 	padding: 40px 20px 20px 20px;
 	position: absolute;
 	background: #111;
-	width: 310px;
-	height: 500px;
+	width: 292px;
+	height: 537px;
 	z-index: 5;
 }
-
 
 #box-add-playlist label{
 	margin-top: 15px;
@@ -2106,8 +2105,8 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 
 
 #box-add-playlist input#cancelar-add-playlist{
-	margin-top: 10px;
-	margin-left: 62px;
+	margin-top: 12px;
+	margin-left: 30px;
 }
 
 
