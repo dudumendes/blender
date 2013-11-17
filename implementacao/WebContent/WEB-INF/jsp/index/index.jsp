@@ -1,4 +1,6 @@
 <body class="home page page-id-3232 page-template page-template-template-portfolio-php single-author sidebar-active viewing-portfolio-grid">
+	<a href="http://localhost:8080/varaptor-crud-2/playlists/busca">Buscar Playlist</a>
+	
 	<div id="box-add-playlist" class="one-edge-shadow">
 		<form action="<c:url value="/playlists/adiciona"/>" id="form-add-playlist" method="post" accept-charset="utf-8" enctype="multipart/form-data"> 
 			<label for="titulo">Título:</label>
@@ -12,8 +14,6 @@
         
         	<label for="foto">Imagem de Capa:</label>
         	<input type="file" name="foto" />
-        	
-        	
         	
         	
         	<div style="float: left;">
@@ -278,29 +278,5 @@ var project_url = '';
 
 
 
-
-<!-- formulário do jsp -->
-<div id="menu">
-  <ul>
-    <li><form action="<c:url value="/playlist/busca"/>">
-      <input name="nome"/>
-    </form>
-    </li>
-  </ul>
-</div>
-
-<!-- puts -->
-<!-- falta importar o Puts para o projeto - https://github.com/cairesvs/Puts  -->
-
-<script type="text/javascript" 
-  src="<c:url value="/javascripts/jquery.puts.js"/>"></script>
-...
-<li><form action="<c:url value="/playlist/busca"/>">
-  <input id="busca" name="nome"/>
-</form>
-<script type="text/javascript">
-  $("#busca").puts("Busca produtos por nome");
-</script>
-</li>
 
 

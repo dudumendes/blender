@@ -97,9 +97,12 @@ public class PlaylistsController {
 	
 	//busca
 	
-	public List<Playlist> busca(String nome) {
+	public void busca(){}
+	
+	public List<Playlist> buscaPlaylist(String nome) {
 		  result.include("nome", nome);
 		  return dao.busca(nome);
+		  //result.redirectTo(PlaylistsController.class).busca();
 		}
 	
 }
