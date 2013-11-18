@@ -10,8 +10,10 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.dao.CategoriaDao;
+import br.com.caelum.vraptor.dao.UsuarioWeb;
 import br.com.caelum.vraptor.infra.CriadorDeSession;
 import br.com.caelum.vraptor.models.Categoria;
+import br.com.caelum.vraptor.models.Usuario;
 
 import static br.com.caelum.vraptor.view.Results.*;
 
@@ -20,14 +22,24 @@ public class CategoriasController {
 
 	private final CategoriaDao dao;
 	private final Result result;
+	private final UsuarioWeb usuarioWeb;
 
-    public CategoriasController(CategoriaDao dao, Result result) {
+    public CategoriasController(CategoriaDao dao, Result result, UsuarioWeb usuarioWeb) {
         this.dao = dao;
         this.result = result;
+        this.usuarioWeb = usuarioWeb;
     }
 
     public void adiciona(Categoria categoria) {
-        dao.salva(categoria);
+    	
+    	Usuario usuario = new Usuario();
+    	usuario.setId(this.usuarioWeb.getId());
+    	
+    	categoria.setUsuario(usuario);
+    
+    	
+    	
+    	dao.salva(categoria);
        
        // result.include("notice", "Categoria criada com sucesso!");
         

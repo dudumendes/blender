@@ -68,10 +68,10 @@ public class UsuariosController {
     	//Usuario.setCapa(timeStamp + capaUsuario.getFileName());
     	
     	
-    	if (dao.existeUsuario(usuario)) {
-    	      validator.add(new ValidationMessage("Nome de usuário já existe", 
-    	          "usuario.usuario"));
-        }
+//    	if (dao.existeUsuario(usuario)) {
+//    	      validator.add(new ValidationMessage("Nome de usuário já existe", 
+//    	          "usuario.usuario"));
+//        }
 
     	
 //    	if ((String) usuario.getSenha() != (String) confirmacao) {
@@ -86,7 +86,7 @@ public class UsuariosController {
         
         result.include("notice", "Usuario adicionado com sucesso!");
         //result.redirectTo(this).lista();
-        result.redirectTo(IndexController.class).index();
+        result.redirectTo(IndexController.class).login();
     }
     
     

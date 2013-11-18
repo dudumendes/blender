@@ -50,15 +50,22 @@ public class IndexController {
 		PlaylistDao dao = new PlaylistDao();
 		CategoriaDao cd = new CategoriaDao();
 		
+		
 		System.out.println(dao.listaTudo());
 	
 		// Form de novo usuario
-		result.include("categorias", cd.listaTudo());
-		return dao.listaTudo();
+		result.include("categorias", cd.listaPorUsuario(this.usuarioWeb.getId()));
+		return dao.listaPorUsuario(this.usuarioWeb.getId());
 	}
 	
 	@Path("/login")
 	public void login() {
 		
 	}
+	
+
+	
 }
+   
+
+

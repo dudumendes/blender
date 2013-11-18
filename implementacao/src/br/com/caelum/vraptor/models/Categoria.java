@@ -3,6 +3,7 @@ package br.com.caelum.vraptor.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Categoria {
@@ -11,6 +12,18 @@ public class Categoria {
 	private Long id;
 	private String titulo;
 
+
+	@ManyToOne
+	private Usuario usuario;
+	
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 
 	public Long getId() {
 		return id;

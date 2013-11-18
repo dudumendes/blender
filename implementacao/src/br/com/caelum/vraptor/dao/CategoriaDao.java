@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import br.com.caelum.vraptor.infra.CriadorDeSession;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.models.Categoria;
+import br.com.caelum.vraptor.models.Playlist;
 
 @Component
 public class CategoriaDao {
@@ -32,6 +33,18 @@ public class CategoriaDao {
 	     return (Categoria) this.session.load(Categoria.class, id);
 	}
 
+	
+	public List<Categoria> listaPorUsuario(long UsuarioId) {  
+		List<Categoria> categorias = (List<Categoria>)session.createQuery( "from Categoria where usuario_id=:usuario_id" )
+                .setLong( "usuario_id",UsuarioId)
+                .list();
+		System.out.println(categorias);
+		
+		return categorias; 
+		
+		      
+		}  
+	
 	public void atualiza(Categoria categoria) {
 	     Transaction tx = session.beginTransaction();
 	     this.session.update(categoria);
