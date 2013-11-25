@@ -28,22 +28,40 @@
         	<div class="add-categoria" style="float: left;">
         	  <span style="display: block; margin: 46px 0 0 15px; cursor: pointer; line-height: 0px; height: 30px; font-size: 275%; font-family: Novecentowide, Arial, sans-serif; color: white;" id="btAddCategoria" >+</span>      	 
         	</div>
-        	
+
         	<div style="clear: both;"></div>
-        	
+
         	<div style="display:none" id="box-add-categoria">
         		<input name="categoria.titulo" placeholder="Título da categoria" id="categoria_titulo"/>
         		<input type="button" value="+" name="salvaCategoria" id="salvaCategoria"/>
         	</div>
-        	
+
         	<input id="videoInicial" type="hidden" value="0" name="playlist.videoInicial"/>
-			
+
 			<input type="submit" value="Salvar"/>
-			
+
 			<input type="button" id="cancelar-add-playlist" value="Cancelar"/>
-			
+
 		</form>
 	</div>
+
+
+
+
+
+	<div id="box-busca-video" class="one-edge-shadow">
+		<input id="query" value="" placeholder="Buscar vídeo..." type="text"/>
+		<button id="search-button">Buscar</button>
+	
+	    <ul id="listagem-busca-youtube">
+	    </ul>
+		
+		<a href="#" id="addmore">Carregar mais...</a>
+		
+		<br />
+		<br />
+	</div>
+	
 	
 	
 	<div id="box-add-video" class="one-edge-shadow">

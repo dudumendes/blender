@@ -41,21 +41,21 @@ public class IndexController {
 	}
 
 	@Path("/")
-	public List<Playlist> index() {
-	    	
+	public void index() {
+
 		if (! this.usuarioWeb.isLogado()) {
 			result.redirectTo(IndexController.class).login();
-		}
+		} else {
+			PlaylistDao dao = new PlaylistDao();
+			CategoriaDao cd = new CategoriaDao();
 
-		PlaylistDao dao = new PlaylistDao();
-		CategoriaDao cd = new CategoriaDao();
-		
-		
-		System.out.println(dao.listaTudo());
-	
-		// Form de novo usuario
-		result.include("categorias", cd.listaPorUsuario(this.usuarioWeb.getId()));
-		return dao.listaPorUsuario(this.usuarioWeb.getId());
+			System.out.println(dao.listaTudo());
+
+			// Form de novo usuario
+			result.include("categorias", cd.listaPorUsuario(this.usuarioWeb.getId()));
+			result.include("playlistList", dao.listaPorUsuario(this.usuarioWeb.getId()));
+			//return dao.listaPorUsuario(this.usuarioWeb.getId());
+		}
 	}
 	
 	@Path("/login")

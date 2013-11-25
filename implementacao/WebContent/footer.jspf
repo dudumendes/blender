@@ -37,6 +37,44 @@ var _wpcf7 = {"loaderUrl":"http:\/\/themes.devatic.com\/konzept2\/wp-content\/pl
 <script type="text/javascript">
 
   jQuery(function($){
+
+	  
+		// centraliza box de add video
+		var window_w = $(window).width();
+		var $boxAdd = $("#box-add-video");
+		var boxAdd_w = $("#box-add-video").width();
+		
+		$boxAdd.css({
+			left: (window_w / 2) - (boxAdd_w / 2)
+		});
+		
+		
+		// centraliza box de busca video
+		var window_w = $(window).width();
+		var $boxBusca = $("#box-busca-video");
+		var boxBusca_w = $("#box-busca-video").width();
+		
+		$boxBusca.css({
+			left: (window_w / 2) - (boxBusca_w / 2)
+		});
+		
+		
+		
+		if ($("#notice").html() != '') {
+			$("#notice").slideDown();
+		} else {
+			$("#notice").hide();
+		}
+		
+		if ( $("#notice").is(":visible") ) {
+			setTimeout(function(){
+				$("#notice").slideUp();
+			}, 3000);
+		}
+	  
+	  
+	  
+	  
 	  
 	  $("#btAddCategoria").toggle(
 		function(){
@@ -68,37 +106,43 @@ var _wpcf7 = {"loaderUrl":"http:\/\/themes.devatic.com\/konzept2\/wp-content\/pl
 	  });
 
 
-	  $('#bt-add-playlist').toggle(
-				function(){
-					$('#box-add-playlist').slideDown();
-				},
-				function(){
-					$('#box-add-playlist').slideUp();
-				}
-			);
+		$('#bt-add-playlist').toggle(
+			function(){
+				$('#box-add-playlist').slideDown();
+			},
+			function(){
+				$('#box-add-playlist').slideUp();
+			}
+		);
+
+		
+		$('.thumbnail-plus').toggle(
+			function(){
+				//set playlist_id no formulario
+				var playlist_id = $(this).data('playlistid');
+				$("#valor_playlist_id").val(playlist_id);
+				
+				//$('#box-add-video').slideDown();
 			
-			$('.thumbnail-plus').toggle(
-				function(){
-					//set playlist_id no formulario
-					var playlist_id = $(this).data('playlistid');
-					$("#valor_playlist_id").val(playlist_id);
-					
-					$('#box-add-video').slideDown();
-				},
-				function(){
-					$("#valor_playlist_id").val("");
-					$('#box-add-video').slideUp();
-				}
-			);
+				$('#box-busca-video').slideDown();
+			},
+			function(){
+				$("#valor_playlist_id").val("");
+				//$('#box-add-video').slideUp();
+				$('#box-busca-video').slideUp();
+			}
+		);
 			
-			$("#cancelar-add-video").click(function(){
-				$('#box-add-video').slideUp();
-			});
-			
-			
-			$("#cancelar-add-playlist").click(function(){
-				$('#bt-add-playlist').click();
-			});
+		
+		
+		$("#cancelar-add-video").click(function(){
+			$('#box-add-video').slideUp();
+		});
+
+
+		$("#cancelar-add-playlist").click(function(){
+			$('#bt-add-playlist').click();
+		});
 	  
 	  
 	  
@@ -141,6 +185,74 @@ var _wpcf7 = {"loaderUrl":"http:\/\/themes.devatic.com\/konzept2\/wp-content\/pl
 				email: "Informe um email"
 			}
 		});
+
+
+	  
+	   //busca videos no youtube
+		$(document).ready(function() {
+		    startindex = 1;
+		    loadmore = 15;
+		    var q = '';
+
+		    $('#listagem-busca-youtube').html('');
+		    
+		    
+		    
+		    $('#addmore').on('click',function(e) {
+		        e.preventDefault();
+		        addMore($('#listagem-busca-youtube li').length, 15, q);
+		    });
+		    
+		    
+		    $('#search-button').click(function(){
+		    	$('#listagem-busca-youtube').html('');
+		    	q = $('#query').val();
+		    	addMore(startindex, loadmore, q);
+		    });
+		    
+		});
+
+		function addMore(startindex,loadmore, q) {
+		    src = "https://gdata.youtube.com/feeds/api/videos?q="+q+"&alt=json-in-script&max-results=" + loadmore + "&start-index=" + startindex;
+		
+		    $.ajax({
+		        dataType: "jsonp",
+		        url: src,
+		        success: function(data, textStatus, jqXHR) {
+		            if (data.feed && data.feed.entry) {
+		            	
+		            	console.log(data.feed.entry);
+		            	
+		                
+						var $list = $('#listagem-busca-youtube');
+		                
+		                $.each(data.feed.entry, function(i, e) {
+		                    //$list.append('<li class="video"><a href="' + e.link[1].href + '"><span>' + e.title.$t + '</span></a><span>' + e.author[0].name.$t + '</span></li>');
+		                
+		                    var template = '<li>'
+		        	        			+ '<a href="#" title=""><img src="'+e.media$group.media$thumbnail[1].url+'" alt="" /></a>'
+		        	        			+ '<h1 class="label-video-transparente"><a href="#">' + e.title.$t + '</a></h1>'
+		        	      				+ '</li>';
+		                    $list.append(template);     				
+		                });
+		                
+		                $('#addmore').show();
+		            } else {
+		            	$('#addmore').hide();
+		            }
+		        }
+		    });
+		}
+	  
+		
+		$('#listagem-busca-youtube li a').click(function(){
+			//$('.thumbnail-plus').click();
+			$('#box-busca-video').hide();
+			$('#box-add-video').show();
+			
+			return false;
+		});
+	  
   });
   
 </script>

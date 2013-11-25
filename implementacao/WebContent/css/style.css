@@ -157,7 +157,7 @@ blockquote i { font-style: normal; font-weight: 300; }
 blockquote strong,
 blockquote b { font-weight: 400; }
 blockquote.quote-style-2 { position: relative; text-indent: 2em; }
-blockquote.quote-style-2:before { quotes: "«" "»"; quotes: "\00AB" "\00BB"; content: open-quote; font-size: 2.5em; font-weight: 900; line-height: 0.375; text-indent: 0; /* color: inherit; */ color: #787878; position: absolute; top: 0; left: 0; }
+blockquote.quote-style-2:before { quotes: "��" "��"; quotes: "\00AB" "\00BB"; content: open-quote; font-size: 2.5em; font-weight: 900; line-height: 0.375; text-indent: 0; /* color: inherit; */ color: #787878; position: absolute; top: 0; left: 0; }
 
 small { font-size: smaller; }
 sub,
@@ -2144,6 +2144,89 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 
 
 
+
+
+#box-busca-video{
+	display: none;
+	left: 0;
+	margin-top: -20px;
+	padding: 40px 20px 20px 20px;
+	position: absolute;
+	background: #111;
+	width: 1001px;
+	min-height: 600px;
+	z-index: 5;
+}
+
+#box-busca-video label{
+	margin-top: 15px;
+	font-size: 12px;
+	text-transform: uppercase;
+	display: block;
+}
+#box-busca-video input[type="text"]{
+	width: 88%;
+}
+
+#box-busca-video input[type="submit"]{
+	margin-top: 22px;
+}
+
+#box-busca-video input#cancelar-busca-video{
+	margin-top: 22px;
+	margin-left: 26px;
+}
+
+#box-busca-video ul#listagem-busca-youtube{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#box-busca-video ul#listagem-busca-youtube li{
+  margin: 0;
+  padding: 0;
+  float: left;
+  display: inline;
+}
+
+#box-busca-video ul#listagem-busca-youtube li h1{
+  font-size: 11px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  padding: 5px 5px;
+  margin: -93px 0 0 0;
+  display: block;
+  max-width: 155px;
+  background: #333;
+  position: absolute;
+  
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  -moz-opacity:0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+}
+#box-busca-video ul#listagem-busca-youtube li h1 a{
+  display: block;
+  color: #eee;
+  text-decoration: none;
+}
+#box-busca-video ul#listagem-busca-youtube li img{
+  width: 192px;
+  height: 101px;
+}
+
+#box-busca-video #addmore{
+	display: none;
+}
+
+
+
+
+
+
+
+
 /* CADASTRO */
 #box-cadastro{
 	left: 106px;
@@ -2231,3 +2314,5 @@ body.login{
 .error-login, .error{
 	color: red;
 }
+
+

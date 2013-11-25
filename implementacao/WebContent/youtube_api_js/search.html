@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Search</title>
+    <style type="text/css">
+    body{
+      background: #151515;
+    }
+
+
+    ul#listagem-busca-youtube{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ul#listagem-busca-youtube li{
+      margin: 0;
+      padding: 0;
+      float: left;
+      display: inline;
+    }
+    ul#listagem-busca-youtube li h1{
+      font-size: 11px;
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      padding: 5px 5px;
+      margin: -93px 0 0 0;
+      display: block;
+      max-width: 155px;
+      background: #333;
+      position: absolute;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    ul#listagem-busca-youtube li h1 a{
+      display: block;
+      color: #eee;
+      text-decoration: none;
+    }
+    ul#listagem-busca-youtube li img{
+      width: 180px;
+      height: 101px;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="buttons">
+      <label> <input id="query" value='cats' type="text"/><button id="search-button" disabled onclick="search()">Search</button></label>
+    </div>
+    <div id="search-container">
+    </div>
+
+
+
+    <ul id="listagem-busca-youtube">
+      <li>
+        <a href="#" title=""><img src="https://i.ytimg.com/vi/2WdOPfao4KI/mqdefault.jpg" alt="" /></a>
+        <h1><a href="#">Hillsong United</a></h1>
+      </li>
+
+      <li>
+        <a href="#" title=""><img src="https://i.ytimg.com/vi/2WdOPfao4KI/mqdefault.jpg" alt="" /></a>
+        <h1><a href="#">Hillsong United</a></h1>
+      </li>
+    </ul>
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="auth.js"></script>
+    <script src="search.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+  </body>
+</html>

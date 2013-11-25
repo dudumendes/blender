@@ -3,32 +3,6 @@
 	$(function() {
 		
 		
-
-		// centraliza box de add video
-		var window_w = $(window).width();
-		var $box = $("#box-add-video");
-		var box_w = $("#box-add-video").width();
-		
-		
-		$box.css({
-			left: (window_w / 2) - (box_w / 2)
-		});
-		
-		
-		
-		if ($("#notice").html() != '') {
-			$("#notice").slideDown();
-		} else {
-			$("#notice").hide();
-		}
-		
-		if ( $("#notice").is(":visible") ) {
-			setTimeout(function(){
-				$("#notice").slideUp();
-			}, 3000);
-		}
-		
-		
 		try {
 			if (typeof _wpcf7 == 'undefined' || _wpcf7 === null)
 				_wpcf7 = {};

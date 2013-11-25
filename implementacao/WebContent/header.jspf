@@ -23,17 +23,21 @@
 <link rel='stylesheet' id='flow-style-css'  href='<c:url value="/css/style.css?ver=3.6"/>' type='text/css' media='all' />
 <link rel='stylesheet' id='flow-fonts-css'  href='<c:url value="/css/fonts.css?ver=3.6"/>' type='text/css' media='all' />
 <link rel='stylesheet' id='flow-slideshow-style-css'  href='<c:url value="/css/slideshow.css?ver=3.6"/>' type='text/css' media='all' />
-<script type='text/javascript' src='<c:url value="/js/jquery.js?ver=1.10.2"/>'></script>
+<!--<script type='text/javascript' src='<c:url value="/js/jquery.js?ver=1.10.2"/>'></script>-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type='text/javascript' src='<c:url value="/js/jquery-migrate.min.js?ver=1.2.1"/>'></script>
+
+
+
 <fmt:setLocale value="pt_br"/>
 
 
-			<script>
-			jQuery(document).ready(function(){
-				jQuery(".pf_nav li a").on("click", function(){
-					jQuery("#custom-background-css").text("");
-					jQuery("#main-portfolio-css").text(jQuery("#main-portfolio-css").attr("data-style"));
-				});
-			});
-			</script>
-			</head>
+<script>
+jQuery(document).ready(function(){
+	jQuery(".pf_nav li a").on("click", function(){
+		jQuery("#custom-background-css").text("");
+		jQuery("#main-portfolio-css").text(jQuery("#main-portfolio-css").attr("data-style"));
+	});
+});
+</script>
+</head>
