@@ -222,21 +222,37 @@ var _wpcf7 = {"loaderUrl":"http:\/\/themes.devatic.com\/konzept2\/wp-content\/pl
 		            if (data.feed && data.feed.entry) {
 		            	
 		            	console.log(data.feed.entry);
-		            	
+		          
 		                
 						var $list = $('#listagem-busca-youtube');
 		                
 		                $.each(data.feed.entry, function(i, e) {
-		                    //$list.append('<li class="video"><a href="' + e.link[1].href + '"><span>' + e.title.$t + '</span></a><span>' + e.author[0].name.$t + '</span></li>');
+		                    //$list.append('<li class="video"><a href="' + e.link[0].href + '"><span>' + e.title.$t + '</span></a><span>' + e.author[0].name.$t + '</span></li>');
 		                
 		                    var template = '<li>'
-		        	        			+ '<a href="#" title=""><img src="'+e.media$group.media$thumbnail[1].url+'" alt="" /></a>'
+		        	        			+ '<a href="#" data-video-url="' + e.link[0].href + '" data-video-seconds="' + e.media$group.yt$duration.seconds + '" data-video-imagem-thumb="'+e.media$group.media$thumbnail[0].url+'" title=""><img src="'+e.media$group.media$thumbnail[0].url+'" alt="" /></a>'
 		        	        			+ '<h1 class="label-video-transparente"><a href="#">' + e.title.$t + '</a></h1>'
 		        	      				+ '</li>';
 		                    $list.append(template);     				
 		                });
 		                
 		                $('#addmore').show();
+		                
+		                $('#listagem-busca-youtube li a').click(function(){
+		        			
+		                	$('#box-add-video').find('input#video-url').val($(this).data('video-url'));
+
+		                	$('#box-add-video').find('input#video-duracao-sec').val($(this).data('video-seconds'));
+		                	$('#box-add-video').find('input#video-imagem-thumb').val($(this).data('video-imagem-thumb'));
+		                	
+		                	
+
+		        			$('#box-busca-video').fadeOut();
+		        			$('#box-add-video').fadeIn();
+		        			
+		        			return false;
+		        		});
+		                
 		            } else {
 		            	$('#addmore').hide();
 		            }
@@ -245,13 +261,7 @@ var _wpcf7 = {"loaderUrl":"http:\/\/themes.devatic.com\/konzept2\/wp-content\/pl
 		}
 	  
 		
-		$('#listagem-busca-youtube li a').click(function(){
-			//$('.thumbnail-plus').click();
-			$('#box-busca-video').hide();
-			$('#box-add-video').show();
-			
-			return false;
-		});
+		
 	  
   });
   

@@ -46,7 +46,25 @@ public class VideosController {
         this.response = response;
     }
 
-    public void adiciona(Video video, UploadedFile imagem, UploadedFile arquivo, long playlist_id) {
+    public void adiciona(Video video, long playlist_id) {
+		Playlist playlist = new Playlist();
+		playlist.setId(playlist_id);
+
+    	video.setDataAdicao(new Date());
+    	video.setTotalNegativos("");
+    	video.setTotalPositivos("");    	
+    	video.setPlaylist(playlist);
+    	
+        dao.salva(video);
+        
+        result.include("notice", "Video adicionado com sucesso!");
+        //result.redirectTo(this).lista();
+        result.redirectTo(IndexController.class).index();
+    }
+    
+    
+    /*
+     public void adiciona(Video video, UploadedFile imagem, UploadedFile arquivo, long playlist_id) {
 		Timestamp timestampObj = new Timestamp();
 		long timeStamp = timestampObj.getDateTime();
 		
@@ -75,6 +93,7 @@ public class VideosController {
         //result.redirectTo(this).lista();
         result.redirectTo(IndexController.class).index();
     }
+     */
 
     public void remove(Long id) {
         Video video = dao.carrega(id);

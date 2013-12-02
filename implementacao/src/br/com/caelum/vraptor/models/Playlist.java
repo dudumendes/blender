@@ -19,14 +19,17 @@ public class Playlist {
 	private String imagemCapa;
 	private int videoInicial;	
 	
-	
 	@OneToMany(mappedBy="playlist")
     private Set<Video> videos;
 
 	@ManyToOne
 	private Usuario usuario;
+	
+	@ManyToOne
+	private Categoria categoria;
 
 
+	
 	public String getImagemCapa() {
 		return imagemCapa;
 	}
@@ -34,8 +37,6 @@ public class Playlist {
 	public void setImagemCapa(String imagemCapa) {
 		this.imagemCapa = imagemCapa;
 	}
-
-	
 	
 	public Long getId() {
 		return id;
@@ -80,8 +81,21 @@ public class Playlist {
 	public Usuario getUsuario() {
 		return usuario;
 	}
+	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 	
+	/*
+	 * Retorna os vídeos
+	 */
+
 }

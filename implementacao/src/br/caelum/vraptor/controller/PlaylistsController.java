@@ -23,6 +23,7 @@ import br.com.caelum.vraptor.dao.UsuarioWeb;
 import br.com.caelum.vraptor.infra.Arquivo;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.models.Categoria;
 import br.com.caelum.vraptor.models.Playlist;
 import br.com.caelum.vraptor.models.Usuario;
 
@@ -48,7 +49,14 @@ public class PlaylistsController {
         this.usuarioWeb = usuarioWeb;
     }
 
-    public void adiciona(Playlist playlist, UploadedFile foto) {
+    public void adiciona(Playlist playlist, UploadedFile foto, long categoria_id) {
+    	
+    	Categoria categoria = new Categoria();
+		categoria.setId(categoria_id);
+		
+		playlist.setCategoria(categoria);
+    	
+    	
 		Timestamp timestampObj = new Timestamp();
 		long timeStamp = timestampObj.getDateTime();
 		

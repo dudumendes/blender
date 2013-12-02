@@ -2154,7 +2154,7 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 	position: absolute;
 	background: #111;
 	width: 1001px;
-	min-height: 600px;
+	min-height: 168px;
 	z-index: 5;
 }
 
@@ -2294,7 +2294,7 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 
 
 body.login{
-	background: url('../images/photo-mosaic.jpg');
+	background: url('../images/bg-new.jpg');
 }
 
 
