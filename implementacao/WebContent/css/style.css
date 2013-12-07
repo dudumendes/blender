@@ -89,7 +89,7 @@ input,
 select,
 textarea { font-family: Roboto, sans-serif; }
 
-body { color: #505050; line-height: 1.625; margin: 0; opacity: 0; position: relative; height: 100%; }
+body { color: #CACACA; line-height: 1.625; margin: 0; opacity: 0; position: relative; height: 100%; }
 .body-visible { opacity: 1; -webkit-transition: opacity 700ms; transition: opacity 700ms; }
 
 a { color: #3B95B1; text-decoration: none; }
@@ -2154,7 +2154,7 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 	position: absolute;
 	background: #111;
 	width: 1001px;
-	min-height: 600px;
+	min-height: 168px;
 	z-index: 5;
 }
 
@@ -2294,7 +2294,7 @@ body.konzept-portfolio-viewing-project .portfolio-arrow-right { visibility: visi
 
 
 body.login{
-	background: url('../images/photo-mosaic.jpg');
+	background: url('../images/bg-new.jpg');
 }
 
 
