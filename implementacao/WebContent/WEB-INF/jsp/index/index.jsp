@@ -65,28 +65,26 @@
 	
 	
 	<div id="box-add-video" class="one-edge-shadow">
-		<form action="<c:url value="/videos/adiciona"/>" id="form-add-video" method="post" accept-charset="utf-8" enctype="multipart/form-data"> 
+		<form action="<c:url value="/videos/adiciona"/>" id="form-add-video" method="post" accept-charset="utf-8"> 
 			
-			<input type="hidden" id="valor_playlist_id" value="12" name="playlist_id"/>
+			<input type="hidden" id="valor_playlist_id" value="" name="playlist_id"/>
+			
+			<input type="hidden" id="video-duracao-sec" value="0" name="video.duracaoSec"/>
+			
+			<input type="hidden" id="video-imagem-thumb" value="" name="video.imagemVideo"/>
 			
 			<div style="float: left; width: 235px;">
-				<label for="titulo">URL:</label>
-	        	<input id="titulo" type="text" name="video.url"/>
+				<label for="video-url">URL:</label>
+	        	<input id="video-url" type="text" name="video.url"/>
 			
 				<label for="titulo">Título:</label>
 	        	<input id="titulo" type="text" name="video.titulo"/>
-	        
-	        	<label for="foto">Arquivo:</label>
-	        	<input type="file" name="arquivo" />
 			</div>
 		
 				
 			<div style="float: right; width: 235px; margin-left: 50px;">
 				<label for="descricao">Tags:</label>
 	        	<input id="descricao" type="text" name="video.tag"/>
-	               
-	        	<label for="foto">Imagem de Capa:</label>
-	        	<input type="file" name="imagem" />
 	        </div>	
 
 			<div style="clear: both;"></div>
@@ -143,11 +141,9 @@
 					</div>								
 					<ul class="pf_nav option-set menu-col-categories clearfix">
 						<li><a href="javascript:void(null);" data-project-category-id="all" data-option-value="*" class="selected">Todas as Categorias</a></li>
-						<li><a href="javascript:void(null);" data-project-category-id="35" data-option-value=".portfolio-category-35">Pop</a></li>
-						<li><a href="javascript:void(null);" data-project-category-id="36" data-option-value=".portfolio-category-36">HipHop</a></li>
-						<li><a href="javascript:void(null);" data-project-category-id="23" data-option-value=".portfolio-category-23">Rock</a></li>
-						<li><a href="javascript:void(null);" data-project-category-id="37" data-option-value=".portfolio-category-37">Categoria 01</a></li>
-						<li><a href="javascript:void(null);" data-project-category-id="38" data-option-value=".portfolio-category-38">Categoria 02</a></li>	
+						<c:forEach items="${categorias}" var="categoria">	
+							<li><a href="javascript:void(null);" data-project-category-id="${categoria.id}" data-option-value=".portfolio-category-${categoria.id}">${categoria.titulo}</a></li>	
+						</c:forEach>
 					</ul>
 					
 					<div style="margin-top: 116px; margin-left: 540px; width: 99px; position: absolute;" id="bt-add-playlist">
@@ -243,7 +239,7 @@
 		
 	<div id="container" class="variable-sizes clearfix">
 		<c:forEach items="${playlistList}" var="playlist">
-				<div id="post-${playlist.id }" class="post-${playlist.id } portfolio type-portfolio status-publish hentry element  portfolio-category-35 " data-id="${playlist.id }">
+				<div id="post-${playlist.id }" class="post-${playlist.id } portfolio type-portfolio status-publish hentry element  portfolio-category-${playlist.categoria.id } " data-id="${playlist.id }">
 					<a class="thumbnail-project-link thumbnail-link-title" data-title="Bas van der Veer" href="http://themes.devatic.com/konzept2/portfolio/bas-van-der-veer/">Bas van der Veer</a>					
 					<div class="thumbnail-meta-data-wrapper">
 						<div class="symbol">${playlist.titulo }</div>
