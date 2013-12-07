@@ -1,7 +1,13 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/jsp/index/index.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/index/login.jsp=UTF-8
 encoding//WebContent/css/style.css=UTF-8
+encoding//WebContent/header.jspf=UTF-8
 encoding//src/br/caelum/vraptor/controller/PlaylistsController.java=UTF-8
 encoding//src/br/caelum/vraptor/controller/UsuariosController.java=UTF-8
 encoding//src/br/com/caelum/vraptor/blank/IndexController.java=UTF-8
 encoding//src/br/com/caelum/vraptor/models/Playlist.java=UTF-8
+<<<<<<< HEAD
+=======
+encoding/<project>=UTF-8
+>>>>>>> login

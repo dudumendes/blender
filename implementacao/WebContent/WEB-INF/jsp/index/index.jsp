@@ -262,17 +262,17 @@
 
 
 
-<div id="usuario">
-    <c:if test="${usuarioWeb.logado}">
-      Olá, ${usuarioWeb.nome }! 
-      <a href="<c:url value="/logout"/>">Logout</a>
-    </c:if>
-    <c:if test="${empty usuarioWeb or not usuarioWeb.logado}">
-      Você não está logado. 
-      <a href="<c:url value="/login"/>">Login</a> 
-      <a href="<c:url value="/usuarios/novo"/>">Cadastre-se</a>
-    </c:if>
-  </div>
+<!--<div id="usuario">
+  <c:if test="${usuarioWeb.logado}">
+    Olá, ${usuarioWeb.nome }! 
+    <a href="<c:url value="/logout"/>">Logout</a>
+  </c:if>
+  <c:if test="${empty usuarioWeb or not usuarioWeb.logado}">
+    Você não está logado. 
+    <a href="<c:url value="/login"/>">Login</a> 
+    <a href="<c:url value="/usuarios/novo"/>">Cadastre-se</a>
+  </c:if>
+</div>-->
 
 
 
@@ -293,4 +293,16 @@ var project_url = '';
 
 
 
-
+<footer id="footer" class="site-footer" role="contentinfo">
+	<div class="inner clearfix">
+		<div class="grid_12 last grid_responsive_only"><aside id="text-4" class="widget widget_text">			<div class="textwidget"><hr></div>
+	</aside></div><div class=" grid_6 widget_no_margin"><aside id="text-2" class="widget widget_text">			<div class="textwidget"><div class="copyright_notice">Olá, ${usuarioWeb.nome }! </div></div>
+	</aside></div><div class=" grid_6 widget_no_margin last"><aside id="text-3" class="widget widget_text">			<div class="textwidget"><ul class="footer-social-icons">
+			<li><a href="http://devatic.com/">t</a></li>
+			<li><a href="http://devatic.com/">f</a></li>
+			<li><a href="http://devatic.com/">s</a></li>
+			<li><a href="http://devatic.com/">m</a></li>
+			<li><a href="mailto:hello@example.com">@</a></li>
+			</ul></div>
+	</aside></div>		</div>
+</footer>
