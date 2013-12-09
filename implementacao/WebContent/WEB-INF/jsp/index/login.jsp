@@ -18,7 +18,7 @@
 
     <link href="css/login.css" media="all" type="text/css" rel="stylesheet" />
 
-    <style>
+    <style type="text/css">
     #form_cadastro label.error, #form_login label.error{
     	padding: 4px;
     	font:normal 11px Arial, Helvetica, sans-serif;

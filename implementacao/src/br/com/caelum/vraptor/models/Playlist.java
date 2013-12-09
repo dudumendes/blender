@@ -97,5 +97,12 @@ public class Playlist {
 	/*
 	 * Retorna os vídeos
 	 */
+	public Set<Video> getVideos() {
+		return videos;
+	}
+
+	public void setVideos(Set<Video> videos) {
+		this.videos = videos;
+	}
 
 }

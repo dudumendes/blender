@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 
 import br.com.caelum.vraptor.infra.CriadorDeSession;
 import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.models.Categoria;
 import br.com.caelum.vraptor.models.Playlist;
 import br.com.caelum.vraptor.models.Video;
 
@@ -32,6 +33,15 @@ public class VideoDao {
         return this.session.createCriteria(Video.class).list();
 	}
 
+	public List<Video> listaPorPlaylist(long playlistId) {  
+		List<Video> videos = (List<Video>)session.createQuery( "from Video where playlist_id=:playlist_id" )
+                .setLong( "playlist_id",playlistId)
+                .list();
+		System.out.println(videos);
+		
+		return videos; 
+	}
+	
 	public Video carrega(Long id) {
 	     return (Video) this.session.load(Video.class, id);
 	}

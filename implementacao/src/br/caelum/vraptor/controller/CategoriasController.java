@@ -49,12 +49,10 @@ public class CategoriasController {
         CategoriaDao cd = new CategoriaDao();
         
         
-        List<Categoria> categorias = cd.listaTudo();
+        List<Categoria> categorias = cd.listaPorUsuario(this.usuarioWeb.getId());
         
         result.use(json()).from(categorias, "categorias").serialize();
-        
-        
-       
+
         
         //result.redirectTo(this).lista();
         

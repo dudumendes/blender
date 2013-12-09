@@ -58,6 +58,11 @@ public class IndexController {
 		}
 	}
 	
+	@Path("/player")
+	public void player(String url_json) {
+		System.out.println("Renderiza view do player");
+	}
+	
 	@Path("/login")
 	public void login() {
 		

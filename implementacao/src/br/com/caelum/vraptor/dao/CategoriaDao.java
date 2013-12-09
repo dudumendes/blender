@@ -43,7 +43,7 @@ public class CategoriaDao {
 		return categorias; 
 		
 		      
-		}  
+	}  
 	
 	public void atualiza(Categoria categoria) {
 	     Transaction tx = session.beginTransaction();

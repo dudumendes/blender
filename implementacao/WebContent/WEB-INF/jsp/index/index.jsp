@@ -3,10 +3,10 @@
 	
 	<div id="box-add-playlist" class="one-edge-shadow">
 		<form action="<c:url value="/playlists/adiciona"/>" id="form-add-playlist" method="post" accept-charset="utf-8" enctype="multipart/form-data"> 
-			<label for="titulo">Título:</label>
+			<label for="titulo">T�tulo:</label>
         	<input id="titulo" type="text" name="playlist.titulo"/>
 		
-			<label for="descricao">Descrição:</label>
+			<label for="descricao">Descri��o:</label>
         	<input id="descricao" type="text" name="playlist.descricao"/>
         
         	<label for="tags">Tags:</label>
@@ -50,7 +50,7 @@
 
 
 	<div id="box-busca-video" class="one-edge-shadow">
-		<input id="query" value="" placeholder="Buscar vídeo..." type="text"/>
+		<input id="query" value="" placeholder="Buscar v�deo..." type="text"/>
 		<button id="search-button">Buscar</button>
 	
 	    <ul id="listagem-busca-youtube">
@@ -77,7 +77,7 @@
 				<label for="video-url">URL:</label>
 	        	<input id="video-url" type="text" name="video.url"/>
 			
-				<label for="titulo">Título:</label>
+				<label for="titulo">T�tulo:</label>
 	        	<input id="titulo" type="text" name="video.titulo"/>
 			</div>
 		
@@ -101,7 +101,7 @@
 		
 		<div class="site-header-inner clearfix">
 			<div class="logo">
-				<div class="logo-inner">
+				<div class="logo-inner" style="display: none;">
 					<a class="home-link" href="http://themes.devatic.com/konzept2/" title="Konzept" rel="home">
 						
 						<div id="perfil-foto"><img src="images/396622_4150605254232_484764986_n.jpg" alt="" /></div>
@@ -117,27 +117,6 @@
 				<nav class="site-navigation clearfix" role="navigation">
 					<h3 class="menu-toggle">Menu</h3>
 					<div class="main-nav">
-						<!--  <ul id="menu-main-menu" class="nav-menu">
-							<li id="menu-item-4888" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4888"><a href="http://themes.devatic.com/konzept2/about/">About Us</a></li>
-							<li id="menu-item-4890" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4890"><a href="http://themes.devatic.com/konzept2/services/">Services</a></li>
-							<li id="menu-item-4892" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4892"><a href="http://themes.devatic.com/konzept2/our-news/">Our News</a></li>
-							<li id="menu-item-4893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4893"><a href="http://themes.devatic.com/konzept2/coming-soon/">Coming Soon</a></li>
-							<li id="menu-item-4891" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4891"><a href="http://themes.devatic.com/konzept2/blog/">Blog</a></li>
-							<li id="menu-item-4889" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4889"><a href="http://themes.devatic.com/konzept2/contact/">Contact</a></li>
-
-						</ul> -->
-						<!-- 
-						<ul>
-		       	   			<li><a href="<c:url value="/usuarios/formulario"/>">Novo Usuário</a></li>
-		           			<li><a href="<c:url value="/usuarios/lista"/>">Lista Usuários</a></li>
-		           
-		           			<li><a href="<c:url value="/playlists/formulario"/>">Nova Playlist</a></li>
-		           			<li><a href="<c:url value="/playlists/lista"/>">Lista Playlists</a></li>
-		           
-		           			<li><a href="<c:url value="/categorias/formulario"/>">Nova Categoria</a></li>
-		           			<li><a href="<c:url value="/categorias/lista"/>">Lista Categorias</a></li>
-		       			</ul>
-		       			 -->
 					</div>								
 					<ul class="pf_nav option-set menu-col-categories clearfix">
 						<li><a href="javascript:void(null);" data-project-category-id="all" data-option-value="*" class="selected">Todas as Categorias</a></li>
@@ -172,71 +151,14 @@
 	<div class="portfolio-indicator">0%</div>
 </div>
 
+
+<!-- modal do player -->
 <div class="flow_slideshow_box portfolio_box ">
-
-		<div class="project-arrow-left project-arrow-left-visible"></div>
-		<div class="project-arrow-right project-arrow-right-visible"></div>
-		
-		<a class="portfolio-cancelclose " href="http://themes.devatic.com/konzept2/"></a>
-		
-		<div class="sharing-icons">
-			<a href="https://twitter.com/share?url=" target="_blank" class="sharing-icons-twitter">
-				<span class="sharing-icons-icon">t</span>
-				<span class="sharing-icons-tooltip" data-tooltip="Twitter"></span>
-			</a>
-			<a href="http://www.facebook.com/sharer.php?u=" target="_blank" class="sharing-icons-facebook">
-				<span class="sharing-icons-icon">f</span>
-				<span class="sharing-icons-tooltip" data-tooltip="Facebook"></span>
-			</a>
-			<a href="https://plus.google.com" target="_blank" class="sharing-icons-googleplus">
-				<span class="sharing-icons-icon">g</span>
-				<span class="sharing-icons-tooltip" data-tooltip="Google+"></span>
-			</a>
-		</div>
-
-		<div id="project-slides" class="flow_slideshow_init">
-			<ul id="thelist" class="project-slides clearfix">
-													<div class="project-slide project-slide-cover">
-						<div class="cover-wrapper">
-							<div class="cover-inner">
-								<div class="project-meta clearfix">
-									<div class="project-meta-col-1">
-										<div class="project-meta-data project-date clearfix" style="display: none;">
-											<div class="project-meta-heading">Date</div>
-											<div class="project-meta-description project-exdate"></div>
-										</div>
-										<div class="project-meta-data project-client clearfix" style="display: none;">
-											<div class="project-meta-heading">Client</div>
-											<div class="project-meta-description project-exclient"></div>
-										</div>
-										<div class="project-meta-data project-agency clearfix" style="display: none;">
-											<div class="project-meta-heading">Agency</div>
-											<div class="project-meta-description project-exagency"></div>
-										</div>
-									</div>
-									<div class="project-meta-col-2">
-										<div class="project-meta-data project-ourrole clearfix" style="display: none;">
-											<div class="project-meta-heading">Our Role</div>
-											<div class="project-meta-description project-exourrole"></div>
-										</div>
-									</div>
-								</div>
-								<h2 class="project-title"></h2>
-								<div class="project-description"></div>
-							</div>
-						</div>
-					</div>
-											</ul>
-		</div>
+	<a class="portfolio-cancelclose " href="http://themes.devatic.com/konzept2/"></a>	
 </div>
 
-<nav class="project-navigation clearfix" role="navigation">
-	<a class="portfolio-arrowleft portfolio-arrowleft-visible">Previous</a>
-	<a class="portfolio-arrowright portfolio-arrowright-visible">Next</a>
-</nav>
 
 <div class="project-coverslide "></div>	<div class="tn-grid-container  portfolio-container clearfix">
-		
 	<div id="container" class="variable-sizes clearfix">
 		<c:forEach items="${playlistList}" var="playlist">
 				<div id="post-${playlist.id }" class="post-${playlist.id } portfolio type-portfolio status-publish hentry element  portfolio-category-${playlist.categoria.id } " data-id="${playlist.id }">
@@ -252,29 +174,10 @@
 						<div class="project-thumbnail-background"></div>
 					</div>
 					<div class="thumbnail-separator">/</div>
-		</c:forEach>			
-					
-								
-				</div>
-					
+		</c:forEach>										
+	</div>
 					
 </div>
-
-
-
-<!--<div id="usuario">
-  <c:if test="${usuarioWeb.logado}">
-    Olá, ${usuarioWeb.nome }! 
-    <a href="<c:url value="/logout"/>">Logout</a>
-  </c:if>
-  <c:if test="${empty usuarioWeb or not usuarioWeb.logado}">
-    Você não está logado. 
-    <a href="<c:url value="/login"/>">Login</a> 
-    <a href="<c:url value="/usuarios/novo"/>">Cadastre-se</a>
-  </c:if>
-</div>-->
-
-
 
 <script>
 // Projects array
@@ -296,13 +199,7 @@ var project_url = '';
 <footer id="footer" class="site-footer" role="contentinfo">
 	<div class="inner clearfix">
 		<div class="grid_12 last grid_responsive_only"><aside id="text-4" class="widget widget_text">			<div class="textwidget"><hr></div>
-	</aside></div><div class=" grid_6 widget_no_margin"><aside id="text-2" class="widget widget_text">			<div class="textwidget"><div class="copyright_notice">Olá, ${usuarioWeb.nome }! </div></div>
-	</aside></div><div class=" grid_6 widget_no_margin last"><aside id="text-3" class="widget widget_text">			<div class="textwidget"><ul class="footer-social-icons">
-			<li><a href="http://devatic.com/">t</a></li>
-			<li><a href="http://devatic.com/">f</a></li>
-			<li><a href="http://devatic.com/">s</a></li>
-			<li><a href="http://devatic.com/">m</a></li>
-			<li><a href="mailto:hello@example.com">@</a></li>
-			</ul></div>
+	</aside></div><div class=" grid_6 widget_no_margin"><aside id="text-2" class="widget widget_text">			<div class="textwidget"><div class="copyright_notice">Ol�, ${usuarioWeb.nome }! </div></div>
+	</aside></div><div class=" grid_6 widget_no_margin last"><aside id="text-3" class="widget widget_text">			<div class="textwidget"></div>
 	</aside></div>		</div>
 </footer>

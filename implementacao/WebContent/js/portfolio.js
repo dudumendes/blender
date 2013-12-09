@@ -26,7 +26,7 @@ function openCadastroPlaylist(){
 }
 
 function bringPortfolio(current_id){
-
+	
 	global_current_id = current_id;
 	
 	// If project with such ID does not exist, load project 0 or do nothing
@@ -235,21 +235,24 @@ function closePortfolioItem(){
 
 jQuery(document).ready(function(){
 
+	// fecha modal
 	// close bringPortfolio()
 	jQuery('.portfolio-cancelclose').on('click', function(e){
+		if(jQuery(this).hasClass('back-link-external') || jQuery('body').hasClass('single-portfolio')){
+			return;
+		}
 
-	if(jQuery(this).hasClass('back-link-external') || jQuery('body').hasClass('single-portfolio')){
-	return;
-	}
-
-	e.preventDefault();
+		
+		$("iframe#iframe-player").remove();
+		
+		e.preventDefault();
 	
-	jQuery('.portfolio_box').removeClass('portfolio_box-visible');
-	jQuery('body').removeClass('konzept-portfolio-viewing-project');
-	jQuery('.project-coverslide').removeClass('project-coverslide-visible');
+		jQuery('.portfolio_box').removeClass('portfolio_box-visible');
+		jQuery('body').removeClass('konzept-portfolio-viewing-project');
+		jQuery('.project-coverslide').removeClass('project-coverslide-visible');
 	
-	myScroll.destroy();
-	closePortfolioItem();
+		myScroll.destroy();
+		closePortfolioItem();
 	});
 });
 
@@ -289,7 +292,7 @@ jQuery(document).ready(function(){
 	$container.on('click', '.element', function(){
 	
 	// Abre a modal
-	
+		
 	// Exclude external link thumbnails
 	if(jQuery(this).find('.thumbnail-link').length != 0){
 	return;
@@ -300,8 +303,15 @@ jQuery(document).ready(function(){
 	return;
 	}
 	
+
 	var current_id = parseInt( jQuery(this).attr('data-id'), 10 );
 	bringPortfolio(current_id);
+	
+		var window_width = $(window).width();
+		var window_height = $(window).height();
+
+		$('.portfolio_box').append('<iframe id="iframe-player" src="http://localhost/workspace/blender-player/#url=http://localhost:8080/varaptor-crud-2/playlists/listajson/'+current_id+'" width="'+window_width+'" height="'+window_height+'" border="no" scrolling="no"></iframe>');
+
 	});
 	
 	// Prevent thumbnail links from working unless they are external links.

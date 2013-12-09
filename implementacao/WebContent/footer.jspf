@@ -1,5 +1,7 @@
 
 	
+	
+	
 	<script type='text/javascript' src='<c:url value="/js/jquery.form.min.js?ver=3.40.0-2013.08.13"/>'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */
@@ -247,13 +249,138 @@ var _wpcf7 = {"loaderUrl":"http:\/\/themes.devatic.com\/konzept2\/wp-content\/pl
 		        }
 		    });
 		}
-	  
-		
 		
 	  
   });
   
 </script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script src="<c:url value="/js/jquery.youtube.player.js"/>" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+    
+            var json_videos = {videos: [
+                    { id: '5FlQSQuv_mg', title: 'Maroon 5 - Payphone' },
+                    { id: 'F80dtpL57QM', title: 'BBC Documentary' },
+                    { id: '5FlQSQuv_mg', title: 'Maroon 5 - Payphone' },
+                    { id: '5ynGpsRtNHw', title: 'Time Lapse' },
+                    { id: '5ky6vgQfU24', title: 'Time Lapse' },
+                    { id: 'FG0fTKAqZ5g', title: 'Time Lapse' },
+                    { id: '70QfHtKdh_0', title: 'The Beatles - A Hard Day\'s Night' },
+                    { id: 'xV0L2VRJXPA', title: 'The Beatles - Twist and Shout' },
+                    { id: 'NjNysj0PxT4', title: 'The Beatles - Can\'t Buy Me Love' },
+                    { id: '7RmKPGRQC18', title: 'The Beatles - All My Loving' },
+                    { id: 'wN11Q0f_52w', title: 'Beatles - Don\'t Let Me Down' },
+                    { id: 'Jbt8oH5Lxto', title: 'The Beatles - Love me Do' },
+                    { id: 'ONXp-vpE9eU', title: 'The Beatles - Yesterday' },
+                    { id: 'TxWsQC3_FUU', title: 'Linkin Park - In The End' },
+                    { id: 'VHoT4N43jK8', title: 'Stromae - Alors On Danse' },
+                    { id: 'LLKvUVPCRTc', title: 'O que é Project Sunlight?' },
+                    { id: 'JEHuX1c5swA', title: 'Tv Noise' },
+                    { id: 'JEHuX1c5swA', title: 'Tv Noise' },
+                    { id: 'JEHuX1c5swA', title: 'Tv Noise' },
+                    { id: 'JEHuX1c5swA', title: 'Tv Noise' },
+                    { id: 'JEHuX1c5swA', title: 'Tv Noise' },
+                    { id: 'JEHuX1c5swA', title: 'Tv Noise' },
+                    { id: 'hPzNl6NKAG0', title: 'Maru the cat' }
+            ]}
+    
+
+            // Custom playlist
+            var config1 =  {
+                    width: 900,                     // player width (integer or string)
+                    height: 356,                    // player height (integer or string)
+                    playlist: {
+                            autoStart: 1,                   // auto play the video after the player as been built (boolean)
+                            autoPlay: 1,                    // auto play the video when loading it via the playlist or toolbar controls (boolean)
+                            title: 'Random videos'
+                            // videos: [
+                            //                 { id: '5FlQSQuv_mg', title: 'Maroon 5 - Payphone' },
+                            //         ]
+                    },
+                    onReady: function(){
+                            //$('.ui-icon-play').click();
+                            //console.log('The player has been constructed and is ready to be used.');
+                            
+                            $('.sidebar-playlist').animate({ "right": "-=150px" }, "slow" , function(){
+                                $('#show-playlist-sidebar').fadeIn();
+                                //$('#show-playlist-sidebar').animate({ "right": "+=50px" }, "slow" );
+                            });
+
+
+                            $('#show-playlist-sidebar').mouseenter(function() {
+                                $('.sidebar-playlist').animate({ "right": "+=150px" }, "slow" , function(){
+                                        $('#show-playlist-sidebar').fadeOut();
+                                });
+                            });
+                            
+                            $('.sidebar-playlist').mouseleave(function() {
+                                $('.sidebar-playlist').animate({ "right": "-=150px" }, "slow" , function(){
+                                        $('#show-playlist-sidebar').fadeIn();
+                                });
+                            });
+
+                            this.playVideo();
+                    },
+                    // toolbarButtons: { 
+                    //         customButton: {
+                    //                 text: 'Power',
+                    //                 icon: 'ui-icon-play',
+                    //                 action: function(){
+                    //                     this.playVideo();
+                    //                 }
+                    //         }       
+                    // },
+                    toolbar: 'play,prev,next',
+                    playlistBuilder: function(videos){
+
+    					var list = $('<ul></ul>');
+
+    					$.each(videos, function(key, video){
+
+    						$('<li></li>')
+    							.data('video', this) // this is required
+    							.attr('title', this.title)
+    							.html('<img src="http://img.youtube.com/vi/' + this.id + '/default.jpg" alt="' + this.title + '" />')
+    							.appendTo( list );
+    					});
+
+    					return {
+    						container: $('.sidebar-playlist'),
+    						items: list
+    							.appendTo('.sidebar-playlist')
+    							//.addClass('jcarousel-skin-youtube-player')
+    							//.jcarousel()
+    							.find('li')
+    					};
+    				},
+    				onYoutubeStateChange: function(stateID){
+    				    if (stateID == 0) {
+    				        this.playVideo();
+    				    }
+    				}
+            };
+
+            var window_w = $(window).width();
+            var window_h = $(window).height();
+
+            //config1.width = window_w-150;
+            config1.height = window_h;
+            $('.sidebar-playlist').css({ height: window_h });
+
+
+            function playFromJson(json_videos, configPlayer){
+                configPlayer.playlist.videos = json_videos.videos;
+                
+                var player = $(".player").player(configPlayer);
+
+                player.player('fullscreen');
+            }
+
+
+            playFromJson(json_videos, config1);
+    </script>
 
 </body>
 </html>
